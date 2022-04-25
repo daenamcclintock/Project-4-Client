@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 import { createProperty } from '../../api/properties'
 import { useNavigate } from 'react-router-dom'
+import PropertyForm from '../shared/PropertyForm'
 
 
 const CreateProperty = (props) => {
@@ -47,7 +48,7 @@ const CreateProperty = (props) => {
     return (
         <container className='createB'>
         <div>
-            <PropetyForm
+            <PropertyForm
                 property={property}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}

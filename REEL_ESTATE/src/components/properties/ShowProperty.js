@@ -45,27 +45,27 @@ const ShowProperty = (props) => {
         })
     }
     
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(typeof propertyId)
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log(typeof propertyId)
 
-        addToCart(propertyId, user)
-            // Then we send success message
-            .then( () =>
-                msgAlert({
-                    heading: 'Success!',
-                    message: 'Property Listing added successfully!',
-                    variant: 'success',
-            }))
-            // if there is an error, we'll send an error message
-            .catch( () =>
-                msgAlert({
-                    heading: 'Oh No!',
-                    message: 'Property could not be added',
-                    variant: 'danger',
-            }))
-        console.log('submitted!')
-    }
+    //     addToCart(propertyId, user)
+    //         // Then we send success message
+    //         .then( () =>
+    //             msgAlert({
+    //                 heading: 'Success!',
+    //                 message: 'Property Listing added successfully!',
+    //                 variant: 'success',
+    //         }))
+    //         // if there is an error, we'll send an error message
+    //         .catch( () =>
+    //             msgAlert({
+    //                 heading: 'Oh No!',
+    //                 message: 'Property could not be added',
+    //                 variant: 'danger',
+    //         }))
+    //     console.log('submitted!')
+    // }
 
     const removeTheProperty = () => {
         removeProperty(user, property._id)
@@ -123,7 +123,7 @@ const ShowProperty = (props) => {
                         <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
                             Edit Property Listing
                         </Button>
-                        <Button onClick={() => removeTheProduct()} className="m-2" variant="danger">
+                        <Button onClick={() => removeTheProperty()} className="m-2" variant="danger">
                             Delete Property Listing
                         </Button>
                     </>
@@ -139,13 +139,13 @@ const ShowProperty = (props) => {
                     <p>${property.price}</p>
                     {property.stock === 0 ? <p>Out-of-stock</p> : <p>In-stock: {property.stock}</p>}
                     <p>{property.description}</p>
-                    <Form onSubmit={handleSubmit}>
+                    {/* <Form onSubmit={handleSubmit}>
                         {property.stock === 0 ? 
                         <Button className="m-2" variant="primary" disabled>Add To Cart</Button>
                         :
                         <button className="signInB" type='submit'>Add To Cart</button>
                         }
-                    </Form>
+                    </Form> */}
                         <button className="reviewB" onClick={()=> setReviewModalOpen(true)}> Leave a Review</button>
             </Container>
             

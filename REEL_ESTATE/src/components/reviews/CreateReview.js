@@ -25,7 +25,7 @@ const GiveReviewModal = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        addReview( user, product._id, review)
+        addReview( user, property._id, review)
         // if create is successful, we should navigate to the show page and refresh
             .then(() => handleClose())
             .then(() => triggerRefresh())

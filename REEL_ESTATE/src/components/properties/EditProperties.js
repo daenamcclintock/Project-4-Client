@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Modal} from 'react-bootstrap'
 import { updateProperty } from '../../api/properties'
-import PropertyForm from '../shared/propertyForm'
+import PropertyForm from '../shared/PropertyForm'
 
 const EditPropertiesModel = (props) => {
     const { user, show, handleClose, updateProperty, triggerRefresh } = props
