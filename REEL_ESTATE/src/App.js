@@ -12,6 +12,10 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import IndexProperties from './components/properties/IndexProperties'
+import CreateProperty from './components/properties/CreateProperty'
+import MineProperties from './components/properties/MineProperties'
+import ShowProperty from './components/properties/ShowProperty'
 
 const App = () => {
 
@@ -44,7 +48,9 @@ const App = () => {
 			<Fragment>
 				<Header user={user} />
 				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+					<Route 
+						path='/' 
+						element={<Home msgAlert={msgAlert} user={user} />} />
 					<Route
 						path='/sign-up'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
@@ -53,32 +59,57 @@ const App = () => {
 						path='/sign-in'
 						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
 					/>
-          <Route
-            path='/sign-out'
-            element={
-              <RequireAuth user={user}>
-                <SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path='/change-password'
-            element={
-              <RequireAuth user={user}>
-                <ChangePassword msgAlert={msgAlert} user={user} />
-              </RequireAuth>}
-          />
-				</Routes>
-				{msgAlerts.map((msgAlert) => (
-					<AutoDismissAlert
-						key={msgAlert.id}
-						heading={msgAlert.heading}
-						variant={msgAlert.variant}
-						message={msgAlert.message}
-						id={msgAlert.id}
-						deleteAlert={deleteAlert}
+					<Route
+						path='/sign-out'
+						element={
+						<RequireAuth user={user}>
+							<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} />
+						</RequireAuth>
+						}
 					/>
-				))}
+					<Route
+						path='/change-password'
+						element={
+						<RequireAuth user={user}>
+							<ChangePassword msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+						}
+					/>
+					<Route 
+						path='/properties'
+						element={<IndexProperties msgAlert={msgAlert} user={user} />}
+					/>
+					<Route
+						path='/properties/mine'
+						element={
+							<RequireAuth user={user}>
+								<MineProperties msgAlert={msgAlert} user={user}/>
+							</RequireAuth>
+						}
+					/>
+					<Route 
+						path='/properties/:propertyId'
+						element={<ShowProperty msgAlert={msgAlert} user={user} />}
+					/>
+					<Route
+						path='/addProperty'
+						element={
+						<RequireAuth user={user}>
+							<CreateProperty msgAlert={msgAlert} user={user} />
+						</RequireAuth>}
+					/>
+
+					</Routes>
+					{msgAlerts.map((msgAlert) => (
+						<AutoDismissAlert
+							key={msgAlert.id}
+							heading={msgAlert.heading}
+							variant={msgAlert.variant}
+							message={msgAlert.message}
+							id={msgAlert.id}
+							deleteAlert={deleteAlert}
+						/>
+					))}
 			</Fragment>
 		)
 }
