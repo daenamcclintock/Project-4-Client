@@ -1,31 +1,31 @@
 import React, { useState } from 'react'
-import {Modal} from 'react-bootstrap'
-import ReviewForm from '../shared/ReviewForm'
-import {addReview} from '../../api/reviews.js'
+import { Modal } from 'react-bootstrap'
+import MessageForm from '../shared/MessageForm.js'
+import { addMessage } from '../../api/messages'
 import ModalHeader from 'react-bootstrap/esm/ModalHeader'
 
-const GiveReviewModal = (props) => {
+const MessageModal = (props) => {
     const { user, property, show, handleClose, msgAlert, triggerRefresh } = props
-    const [ review, setReview ] = useState({})
+    const [ message, setMessage ] = useState({})
 
     const handleChange = (e) => {
         // e === event
         e.persist()
 
-        setReview(prevReview => {
-            const name =e.target.name
+        setMessage(prevMessage => {
+            const name = e.target.name
             let value = e.target.value
 
             const updatedValue = { [name]: value }
 
-            return {...prevReview, ...updatedValue}
+            return {...prevMessage, ...updatedValue}
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        addReview( user, property._id, review)
+        addMessage( user, property._id, message)
         // if create is successful, we should navigate to the show page and refresh
             .then(() => handleClose())
             .then(() => triggerRefresh())
@@ -35,17 +35,17 @@ const GiveReviewModal = (props) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton></Modal.Header>
+            <Modal.Header>closeButton</Modal.Header>
             <Modal.Body>
-                <ReviewForm
-                    review={review}
+                <MessageForm
+                    message={message}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
-                    heading="Review Property"
+                    heading="Message Realtor"
                 />
             </Modal.Body>
         </Modal>
     )
 }
 
-export default GiveReviewModal
+export default MessageModal

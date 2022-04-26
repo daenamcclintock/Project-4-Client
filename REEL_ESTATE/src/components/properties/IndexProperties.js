@@ -16,6 +16,9 @@ const categoryLinks = {
 
 const IndexProperties = (props) => {
     const [properties, setProperties] = useState(null)
+    const [cities, setCities] = useState(null)
+    const [bedrooms, setBedrooms] = useState()
+    const [bathrooms, setBathrooms] = useState()
     
     useEffect(() => {
         getAllProperties()
@@ -42,7 +45,7 @@ const IndexProperties = (props) => {
                 src={property.image1} 
                 alt='property image' />
                 <Card.Body>
-                        <Link to={`/property/${property._id}`}>
+                        <Link to={`/properties/${property._id}`}>
                             <div className='imgIP'>
                                 <Card.ImgOverlay>
                                     <Card.Title>Seller: {property.owner.fullName}</Card.Title>

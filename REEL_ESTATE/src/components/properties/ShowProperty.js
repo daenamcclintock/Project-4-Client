@@ -7,13 +7,15 @@ import EditPropertiesModel from "./EditProperties";
 // import ReviewForm from '../reviews/ReviewForm'
 import ShowReview from '../reviews/ShowReview'
 import GiveReviewModal from "../reviews/CreateReview";
+import MessageModal from "../messages/CreateMessage";
+import ShowMessage from "../messages/ShowMessages";
 
 const ShowProperty = (props) => {
     const [modalOpen, setModalOpen] = useState(false)
     const [updated, setUpdated] = useState(false)
     const [reviewModalOpen, setReviewModalOpen] = useState(false)
+    const [messageModalOpen, setMessageModalOpen] = useState(false)
     const [property, setProperty] = useState(null)
-    const [quantity, setQuantity] = useState(0)
     const {propertyId} = useParams()
     const { user, msgAlert } = props
     const navigate = useNavigate()
@@ -22,11 +24,12 @@ const ShowProperty = (props) => {
         width: '4%'
     }
 
-    console.log('property ID', propertyId)
-
-    useEffect( () => {
+    useEffect(() => {
         getOneProperty(propertyId)
-            .then( res => setProperty(res.data.property))
+            .then(res => {
+                console.log('THIS IS PROPERTY', res.data.property)
+                setProperty(res.data.property)
+            })
             .catch(console.error)
     }, [updated])
 
@@ -51,14 +54,14 @@ const ShowProperty = (props) => {
 
     //     addToCart(propertyId, user)
     //         // Then we send success message
-    //         .then( () =>
+    //         .then(() =>
     //             msgAlert({
     //                 heading: 'Success!',
     //                 message: 'Property Listing added successfully!',
     //                 variant: 'success',
     //         }))
     //         // if there is an error, we'll send an error message
-    //         .catch( () =>
+    //         .catch(() =>
     //             msgAlert({
     //                 heading: 'Oh No!',
     //                 message: 'Property could not be added',
@@ -86,18 +89,38 @@ const ShowProperty = (props) => {
             })
     }
 
+    const showAmenities = () => {
+        const amenities = property.amenities
+        return amenities.map((amenity) => {
+            return (
+                <li>{amenity}</li>
+            )
+        })
+    }
+
 
     let reviews
     
     if(property) {
-        if(property.reviews.length>0){
-            reviews = property.reviews.map(review=> (
+        if(property.reviews.length > 0) {
+            reviews = property.reviews.map(review => (
                 <ShowReview key={review._id} updated={updated} review={review} property={property} user={user}
-                triggerRefresh={()=> setUpdated(prev=> !prev)}
+                triggerRefresh={()=> setUpdated(prev => !prev)}
                 />
             ))
         }
     }
+
+    let messages 
+    // if(property.owner == user._id) {
+    //     if(user.messages.length > 0) {
+    //         messages = user.messages.map(message => (
+    //             <ShowMessage key={message._id} updated={updated} message={message} user={user}
+    //             triggerRefresh={() => setUpdated(prev => !prev)}
+    //             />
+    //         ))
+    //     }
+    // }
 
     if(!property)
     {
@@ -131,14 +154,20 @@ const ShowProperty = (props) => {
                     null
                     }                    
                 </Card.Body>
-                    <h3><b>{property.name}</b></h3>
+                    <h3><b>Seller: {property.owner.fullName}</b> <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Contact Agent</button></h3>
                     <Card.Img className='imgSP' style={{width:'18rem'}}
-                        src={property.image}
-                        alt='property image'
+                        src={property.image1}
+                        alt='property image1'
                     />
+                    <h4>{property.address}</h4>
                     <p>${property.price}</p>
-                    {property.stock === 0 ? <p>Out-of-stock</p> : <p>In-stock: {property.stock}</p>}
-                    <p>{property.description}</p>
+                    <p>Bedrooms: {property.bedrooms}</p>
+                    <p>Bathrooms: {property.bathrooms}</p>
+                    <p>Amenities:</p>
+                    <ul>
+                        {showAmenities()}
+                    </ul>
+                    
                     {/* <Form onSubmit={handleSubmit}>
                         {property.stock === 0 ? 
                         <Button className="m-2" variant="primary" disabled>Add To Cart</Button>
@@ -146,7 +175,7 @@ const ShowProperty = (props) => {
                         <button className="signInB" type='submit'>Add To Cart</button>
                         }
                     </Form> */}
-                        <button className="reviewB" onClick={()=> setReviewModalOpen(true)}> Leave a Review</button>
+                        <button className="reviewB" onClick={()=> setReviewModalOpen(true)}> Leave a Seller Review</button>
             </Container>
             
             <h3 className="titleText">Reviews: </h3>
@@ -166,6 +195,14 @@ const ShowProperty = (props) => {
                 updateProperty={updateProperty}
                 handleClose={() => setModalOpen(false)}
             />
+                {messages}
+                <MessageModal
+                    user={user}
+                    show= {messageModalOpen}
+                    property={property}
+                    triggerRefresh={() => setUpdated(prev => !prev)}
+                    handleClose={()=> setMessageModalOpen(false)}
+                />
         </div>
         </>
     )

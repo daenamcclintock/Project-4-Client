@@ -14,7 +14,7 @@ const ReviewForm = (props) => {
             <Form.Label >Leave an Anonymous Review</Form.Label>
             <Form.Control as='textarea' 
                 placeholder="Leave a Review"        
-                value={review.note}
+                value={review.review}
                 name='note'
                 onChange={handleChange}
             />

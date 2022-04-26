@@ -1,35 +1,35 @@
 import React, { useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
-import { removeReview } from '../../api/reviews'
+import { removeMessage } from '../../api/messages'
 
-const ShowReview = (props) => {
+const ShowMessage = (props) => {
     // most of these are simply to pass to edit modal
-    const {review, user, property, triggerRefresh} = props
+    const { message, user, property, triggerRefresh } = props
 
 
 
-    const destroyReview = () => {
-        removeReview(user, property._id, review._id)
+    const destroyMessage = () => {
+        removeMessage(user, property._id, message._id)
             .then(() => triggerRefresh())
             // if there is an error, we'll send an error message
             .catch(console.error)
     }
 
 
-// console.log('here is our review owner', review.owner) 
-// console.log('here is our review owner username', review.owner.username) 
+// console.log('here is our message owner', message.owner) 
+// console.log('here is our message owner username', message.owner.username) 
 
     return (
         <>
             <Card className="m-2">
                 <Card.Body>
-                        <h4>{review.note}<br/></h4>
+                        <h4>{message.message}<br/></h4>
                     {
                         user && (user.id === property.owner.id)
                         ?
                         <>
-                    <Button onClick={()=> destroyReview()}variant="outline-danger" size='sm'>
-                        Delete Review    
+                    <Button onClick={()=> destroyMessage()}variant="outline-danger" size='sm'>
+                        Delete Message    
                     </Button>
                     </>
         :
@@ -41,4 +41,4 @@ const ShowReview = (props) => {
     )
 }
 
-export default ShowReview
+export default ShowMessage
