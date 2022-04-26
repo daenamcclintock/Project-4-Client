@@ -9,18 +9,12 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
-	// constructor(props) {
-	// 	super(props)
-
-	// 	this.state = {
-	// 		email: '',
-	// 		password: '',
-	// 		passwordConfirmation: '',
-	// 	}
-	// }    
+	   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
 
     const navigate = useNavigate()
 
@@ -29,7 +23,7 @@ const SignUp = (props) => {
 
 		const { msgAlert, setUser } = props
 
-        const credentials = {email, password, passwordConfirmation}
+        const credentials = {firstName, lastName, email, password, passwordConfirmation}
 
 		signUp(credentials)
 			.then(() => signIn(credentials))
@@ -46,6 +40,8 @@ const SignUp = (props) => {
                 setEmail('')
                 setPassword('')
                 setPasswordConfirmation('')
+                setFirstName('')
+                setLastName('')
 				msgAlert({
 					heading: 'Sign Up Failed with error: ' + error.message,
 					message: messages.signUpFailure,
@@ -60,6 +56,28 @@ const SignUp = (props) => {
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
+                    <Form.Group controlId='firstName'>
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control
+                            required
+                            type='text'
+                            name='firstName'
+                            value={firstName}
+                            placeholder='Enter First Name'
+                            onChange={e => setFirstName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId='lastName'>
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control
+                            required
+                            type='text'
+                            name='lastName'
+                            value={lastName}
+                            placeholder='Enter Last Name'
+                            onChange={e => setLastName(e.target.value)}
+                        />
+                    </Form.Group>
                     <Form.Group controlId='email'>
                         <Form.Label>Email address</Form.Label>
                         <Form.Control
