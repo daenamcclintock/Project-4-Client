@@ -37,16 +37,22 @@ const authenticatedOptions = ({user}) => (
 				My Favorites
 			</Link>
 		</Nav.Item>
-		<InputGroup className="mb-3">
+		<InputGroup className="m-2">
 			<FormControl
+			className='search'
 			placeholder="Search Zip Code"
 			aria-label="Recipient's username"
 			aria-describedby="basic-addon2"
 			/>
-			<Button variant="outline-secondary" id="button-addon2">
+			<Button className='search-button' variant="outline-secondary" id="button-addon2">
 			Search
 			</Button>
 		</InputGroup>
+		<Nav.Item className='m-2'>
+			<Link to='/messages' style={linkStyle}>
+				My Messages
+			</Link>
+		</Nav.Item>
 		<Nav.Item className='m-2'>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
