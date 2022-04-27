@@ -5,6 +5,7 @@ import { removeMessage } from '../../api/messages'
 const ShowMessage = (props) => {
     // most of these are simply to pass to edit modal
     const { user, message, triggerRefresh } = props
+    console.log('THIS IS MESSAGE', message)
 
     const destroyMessage = () => {
         removeMessage(user, user._id, message._id)
@@ -17,9 +18,8 @@ const ShowMessage = (props) => {
     const displayMessages = () => {
         let messages = user.messages
         return messages.map((message) => {
-            console.log('THIS IS MESSAGE', message)
             return (
-                <Card className="m-2">
+                <Card className="m-4">
                     <Card.Header>
                         <h4><b>Name:</b> {message.fullName}</h4>
                         <h5><b>Email:</b> {message.email}</h5>

@@ -64,21 +64,7 @@ const PropertyForm = (props) => {
                     name='image'
                     onChange={handleChange}
                 />
-                {/* <Form.Group controlId="forBasicSelect">
-                <Form.Label>Category of Product</Form.Label>
-                <Form.Control as='select'
-                    placeholder="Category"
-                    value={product.category}
-                    name='category'
-                    onChange={handleChange}
-                >
-                    <option></option>
-                    <option value="collectibles">Collectibles</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="clothing">Clothing</option>
-                </Form.Control>
-                </Form.Group>
-                <button className='signInB' type='submit'>Submit</button> */}
+                <button className='signInB' type='submit'>Submit</button>
             </Form>
         </Container>
         </div>
