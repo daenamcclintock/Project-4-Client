@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Container } from 'react-bootstrap'
+import { Form, Container, Button } from 'react-bootstrap'
 
 
 const PropertyForm = (props) => {
@@ -59,12 +59,13 @@ const PropertyForm = (props) => {
                 />
                 <Form.Label>Amentities</Form.Label>
                 <Form.Control
-                    placeholder="Amentities"
+                    placeholder="Pool, Tennis Court, Water Views"
                     value={property.amentities}
-                    name='image'
+                    name='amenities'
                     onChange={handleChange}
                 />
-                <button className='signInB' type='submit'>Submit</button>
+                <br></br>
+                <Button className='signInB' type='submit'>Submit</Button>
             </Form>
         </Container>
         </div>
