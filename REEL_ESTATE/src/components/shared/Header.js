@@ -49,9 +49,9 @@ const authenticatedOptions = ({ user, property }) => (
 			</Button>
 		</InputGroup>
 		<Nav.Item className='m-2'>
-			{/* <Link to={`/messages/${property._id}`} style={linkStyle}>
+			<Link to={`/messages`} style={linkStyle}>
 				My Messages
-			</Link> */}
+			</Link>
 		</Nav.Item>
 		<Nav.Item className='m-2'>
 			<Link to='sign-out' style={linkStyle}>

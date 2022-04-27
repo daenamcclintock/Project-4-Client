@@ -13,22 +13,22 @@ export const addMessage = (user, propertyId, newMessage) => {
     })
 }
 
-// PATCH -> Update function
-export const updateMessage = (user, propertyId, messageId, updatedMessage) => {
-    return axios({
-        url: `${apiUrl}/messages/${propertyId}/${messageId}`,
-        method: 'PATCH',
-        headers: {
-            Authorization: `Token token=${user.token}`
-        },
-        data: { message: updatedMessage }
-    })
-}
+// // PATCH -> Update function
+// export const updateMessage = (user, propertyId, messageId, updatedMessage) => {
+//     return axios({
+//         url: `${apiUrl}/messages/${propertyId}/${messageId}`,
+//         method: 'PATCH',
+//         headers: {
+//             Authorization: `Token token=${user.token}`
+//         },
+//         data: { message: updatedMessage }
+//     })
+// }
 
 // DELETE -> remove function
-export const removeMessage = (user, propertyId, messageId) => {
+export const removeMessage = (user, userId, messageId) => {
     return axios({
-        url: `${apiUrl}/messages/${propertyId}/${messageId}`,
+        url: `${apiUrl}/messages/${userId}/${messageId}`,
         method: 'DELETE',
         headers: {
             Authorization: `Token token=${user.token}`

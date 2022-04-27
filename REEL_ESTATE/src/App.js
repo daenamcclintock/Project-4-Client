@@ -100,7 +100,7 @@ const App = () => {
 						</RequireAuth>}
 					/>
 					<Route 
-						path='/messages/:propertyId'
+						path='/messages/'
 						element={<ShowMessage msgAlert={msgAlert} user={user} />}
 					/>
 
