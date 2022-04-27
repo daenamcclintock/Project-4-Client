@@ -16,7 +16,7 @@ const MessageForm = (props) => {
                 type="text" 
                 placeholder="John Doe"        
                 // value={message.message}
-                name='fullname'
+                name='fullName'
                 onChange={handleChange}
             />
             <Form.Label >Email Address</Form.Label>
@@ -32,7 +32,7 @@ const MessageForm = (props) => {
                 type='number'
                 placeholder="Enter Phone Number"        
                 // value={message.message}
-                name='email'
+                name='phoneNumber'
                 onChange={handleChange}
             />
             <Form.Label >Message to Agent</Form.Label>
