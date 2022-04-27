@@ -15,27 +15,40 @@ const ShowMessage = (props) => {
             .catch(console.error)
     }
 
+    // const displayMessages = () => {
+    //     let messages = user.messages
+    //     messages.map((message) => {
+    //         return (
+    //             <h4>{message}</h4>
+    //         )
+    //     })
+    // }
 
-// console.log('here is our message owner', message.owner) 
+    console.log('THIS IS THE USER', user)
+    console.log('THIS IS THE PROPERTY', property)
+    console.log('THIS IS THE MESSAGE', message)
+    
+
+console.log('here is our message owner', message.owner) 
 // console.log('here is our message owner username', message.owner.username) 
 
     return (
         <>
             <Card className="m-2">
                 <Card.Body>
-                        <h4>{message.message}<br/></h4>
+                        {/* {displayMessages()} */}
                     {
                         user && (user.id === property.owner.id)
                         ?
                         <>
-                    <Button onClick={()=> destroyMessage()}variant="outline-danger" size='sm'>
+                    <Button onClick={()=> destroyMessage()} variant="outline-danger" size='sm'>
                         Delete Message    
                     </Button>
-                    </>
+        </>
         :
         null
         }
-        </Card.Body>
+            </Card.Body>
     </Card>
     </>
     )

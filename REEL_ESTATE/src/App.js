@@ -16,6 +16,7 @@ import IndexProperties from './components/properties/IndexProperties'
 import CreateProperty from './components/properties/CreateProperty'
 import MineProperties from './components/properties/MineProperties'
 import ShowProperty from './components/properties/ShowProperty'
+import ShowMessage from './components/messages/ShowMessages'
 
 const App = () => {
 
@@ -97,6 +98,10 @@ const App = () => {
 						<RequireAuth user={user}>
 							<CreateProperty msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+					/>
+					<Route 
+						path='/messages/:propertyId'
+						element={<ShowMessage msgAlert={msgAlert} user={user} />}
 					/>
 
 					</Routes>

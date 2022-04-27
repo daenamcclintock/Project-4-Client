@@ -13,7 +13,7 @@ const categoryLinkStyle = {
     textDecoration: 'none',
 }
 
-const authenticatedOptions = ({user}) => (
+const authenticatedOptions = ({ user, property }) => (
 	<>
 		<Nav.Item className='m-2'>
 			<Link to='/properties/mine' style={linkStyle}>
@@ -49,7 +49,7 @@ const authenticatedOptions = ({user}) => (
 			</Button>
 		</InputGroup>
 		<Nav.Item className='m-2'>
-			<Link to='/messages' style={linkStyle}>
+			<Link to={`/messages/${property._id}`} style={linkStyle}>
 				My Messages
 			</Link>
 		</Nav.Item>

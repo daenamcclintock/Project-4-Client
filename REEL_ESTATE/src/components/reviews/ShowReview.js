@@ -4,7 +4,7 @@ import { removeReview } from '../../api/reviews'
 
 const ShowReview = (props) => {
     // most of these are simply to pass to edit modal
-    const {review, user, property, triggerRefresh} = props
+    const { review, user, property, triggerRefresh } = props
 
 
 
