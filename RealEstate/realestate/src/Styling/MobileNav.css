@@ -1,0 +1,12 @@
+.MobileNav_container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.MobileNav_container>img {
+    width:100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

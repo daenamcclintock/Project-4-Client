@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../images/realestate.png'
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import '../../Styleing/MobileNav.css'
 
 const MobileNav = () => {
   return (

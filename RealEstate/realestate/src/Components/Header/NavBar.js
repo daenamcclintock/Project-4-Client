@@ -4,7 +4,13 @@ import DesktopNavBar from './DesktopNavBar'
 const NavBar = () => {
   return (
     <div>
-        <DesktopNavBar />
+        <BrowserView>
+            <h1>This is rendered only in browser</h1>
+            <DesktopNavBar />
+        </BrowserView>
+        <MobileView>
+            <h1>This is rendered only on mobile</h1>
+        </MobileView>
     </div>
   )
 }
