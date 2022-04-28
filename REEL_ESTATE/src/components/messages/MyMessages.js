@@ -18,4 +18,3 @@ const DisplayMessage = (props) => {
         }
     }
 }
-

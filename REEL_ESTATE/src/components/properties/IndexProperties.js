@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Card, Dropdown,DropdownButton, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { getAllProperties } from '../../api/properties'
+import FilterPanel from '../shared/FilterPanel'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -70,6 +71,14 @@ const IndexProperties = (props) => {
         })
     }
 
+    const cityFilter = () => {
+        properties.map(property => {
+            const city = property.address.split(',')[1]
+            
+        })
+
+    }
+
     const cityOptions = () => {
         return properties.map(property => {
             const city = property.address.split(',')
@@ -98,47 +107,9 @@ const IndexProperties = (props) => {
 
     return (
         <>
-            <h3 className='titleText'>Filters</h3>
-            <div className="filters">
-                
-                <label for='city'>City</label>
-                <div className="filter-options">
-                    <select name='city' className='city-filter'>
-                        <option value="All">All</option>
-                        {cityOptions()}
-                    </select>
-                </div>
-                
-                <label for='bedrooms'>Bedrooms</label>
-                <div className="filter-options">
-                    <select name='city' className='city-filter'>
-                        {bedroomsOptions()}
-                    </select>
-                </div>
-                
-                <label for='bathrooms'>Bathrooms</label>
-                <div className="filter-options">
-                    <select name='bathrooms' class='city-filter'>
-                        {bathroomOptions()}
-                    </select>
-                </div>
-            
-                <span class='label'>Square Footage</span>
-                <div className="min-sqft">
-                    <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
-                </div>
-                <div className="max-sqft">
-                    <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
-                </div>
-
-                
-                <label for="customRange2" class="form-label">Price</label>
-                <input type="range" class="form-range" min="0" max="5" id="customRange2"></input>
-
-                
-                <div style={cardContainerLayout}>
-                    {propertyCards}
-                </div>
+            <FilterPanel properties={properties}/>
+            <div style={cardContainerLayout}>
+                {propertyCards}
             </div>
         </>
     )
