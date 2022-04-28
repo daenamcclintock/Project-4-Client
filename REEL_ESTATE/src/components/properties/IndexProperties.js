@@ -100,49 +100,42 @@ const IndexProperties = (props) => {
         <>
             <h3 className='titleText'>Filters</h3>
             <div className="filters">
-                <div className="city">
-                    <label for='city'>City</label>
-                    <div className="filter-options">
-                        <select name='city' className='city-filter'>
-                            <option value="All">All</option>
-                            {cityOptions()}
-                        </select>
-                    </div>
+                
+                <label for='city'>City</label>
+                <div className="filter-options">
+                    <select name='city' className='city-filter'>
+                        <option value="All">All</option>
+                        {cityOptions()}
+                    </select>
                 </div>
-                <br></br>
-                <div className="bedrooms">
-                    <label for='bedrooms'>Bedrooms</label>
-                    <div className="filter-options">
-                        <select name='city' className='city-filter'>
-                            {bedroomsOptions()}
-                        </select>
-                    </div>
+                
+                <label for='bedrooms'>Bedrooms</label>
+                <div className="filter-options">
+                    <select name='city' className='city-filter'>
+                        {bedroomsOptions()}
+                    </select>
                 </div>
-                <br></br>
-                <div className="bathrooms">
-                    <label for='bathrooms'>Bathrooms</label>
-                    <div className="filter-options">
-                        <select name='bathrooms' class='city-filter'>
-                            {bathroomOptions()}
-                        </select>
-                    </div>
+                
+                <label for='bathrooms'>Bathrooms</label>
+                <div className="filter-options">
+                    <select name='bathrooms' class='city-filter'>
+                        {bathroomOptions()}
+                    </select>
                 </div>
-                <br></br>
-                <div class='filters square-footage'>
-                    <span class='label'>Square Footage</span>
-                    <div className="min-sqft">
-                        <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
-                    </div>
-                    <div className="max-sqft">
-                        <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
-                    </div>
+            
+                <span class='label'>Square Footage</span>
+                <div className="min-sqft">
+                    <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
                 </div>
-                <br></br>
-                <div className="filters price">
-                    <label for="customRange2" class="form-label">Price</label>
-                    <input type="range" class="form-range" min="0" max="5" id="customRange2"></input>
+                <div className="max-sqft">
+                    <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
                 </div>
 
+                
+                <label for="customRange2" class="form-label">Price</label>
+                <input type="range" class="form-range" min="0" max="5" id="customRange2"></input>
+
+                
                 <div style={cardContainerLayout}>
                     {propertyCards}
                 </div>

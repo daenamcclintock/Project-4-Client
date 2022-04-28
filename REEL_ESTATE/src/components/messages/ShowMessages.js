@@ -1,14 +1,22 @@
 import React, { useState } from 'react'
 import { Card, Button } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 import { removeMessage } from '../../api/messages'
 
 const ShowMessage = (props) => {
-    // most of these are simply to pass to edit modal
     const { user, message, triggerRefresh } = props
-    console.log('THIS IS MESSAGE', message)
+    const messageId = useParams()
+    const userId = useParams()
+    console.log('userId', userId)
+    console.log('messageId', messageId)
 
     const destroyMessage = () => {
-        removeMessage(user, user._id, message._id)
+        let messages = user.messages
+        messages.map((message) => {
+            let messageId = message._id
+            console.log('THIS IS MESSAGE ID2', messageId)
+        })
+        removeMessage(user, userId, messageId)
             .then(() => triggerRefresh())
             // if there is an error, we'll send an error message
             .catch(console.error)
