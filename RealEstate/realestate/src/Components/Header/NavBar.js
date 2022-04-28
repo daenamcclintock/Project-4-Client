@@ -1,15 +1,16 @@
 import React from 'react'
 import DesktopNavBar from './DesktopNavBar'
+import MobileNav from './MobileNav'
+import { BrowserView, MobileView } from 'react-device-detect';
 
 const NavBar = () => {
   return (
     <div>
         <BrowserView>
-            <h1>This is rendered only in browser</h1>
             <DesktopNavBar />
         </BrowserView>
         <MobileView>
-            <h1>This is rendered only on mobile</h1>
+            <MobileNav />
         </MobileView>
     </div>
   )

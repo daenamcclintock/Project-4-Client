@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../images/realestate.png'
-import '../../Styleing/MobileNav.css'
+import '../../Styling/MobileNav.css'
 
 const MobileNav = () => {
   return (
