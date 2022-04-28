@@ -26,7 +26,6 @@ const MessageModal = (props) => {
         e.preventDefault()
 
         addMessage( user, property._id, message)
-        // if create is successful, we should navigate to the show page and refresh
             .then(() => handleClose())
             .then(() => triggerRefresh())
             // if there is an error, send an error message
@@ -35,7 +34,7 @@ const MessageModal = (props) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header>closeButton</Modal.Header>
+            <Modal.Header>Contact Seller</Modal.Header>
             <Modal.Body>
                 <MessageForm
                     message={message}

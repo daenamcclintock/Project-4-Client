@@ -64,7 +64,7 @@ const IndexProperties = (props) => {
                         {property.address}
                     </Card.Text>
                     <Card.Text>
-                        ${property.price}
+                        ${property.price / 1000000} M
                     </Card.Text>
                 </Card.Footer>
             </Card>)

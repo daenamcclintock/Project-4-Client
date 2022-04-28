@@ -1,0 +1,21 @@
+.DesktopNav_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.DesktopNavLeft_container {
+    width:30%;
+}
+
+.DesktopNavLeft_container>img {
+    width:50%;
+}
+
+.DesktopNavRight_container {
+    display: flex;
+    align-items: center;
+}
+
+.DesktopNavRight_container > h3 {
+    margin-right: 2em;
+}

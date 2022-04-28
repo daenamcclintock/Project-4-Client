@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom'
 import { removeMessage } from '../../api/messages'
 
 const ShowMessage = (props) => {
-    const { user, message, triggerRefresh } = props
-    const messageId = useParams()
-    const userId = useParams()
+    const { user, triggerRefresh } = props
+
+    let messages = user.messages
+    const messageId = messages.map((message) => message._id)
+    let userId = user._id
     console.log('userId', userId)
     console.log('messageId', messageId)
 
@@ -16,7 +18,7 @@ const ShowMessage = (props) => {
             let messageId = message._id
             console.log('THIS IS MESSAGE ID2', messageId)
         })
-        removeMessage(user, userId, messageId)
+        removeMessage(user, user._id, messageId)
             .then(() => triggerRefresh())
             // if there is an error, we'll send an error message
             .catch(console.error)
