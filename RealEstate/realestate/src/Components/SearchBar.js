@@ -8,7 +8,7 @@ const SearchBar = () => {
     <div className='SearchBar_container'>
         <div className="searchBar_fields">
             <div className="search_text">
-                <h3>Find Your Ideal Home</h3>
+                <h3>Search Luxury Real Estate</h3>
             </div>
             <div className="search_input">
                 <input type='text' placeholder='search' />
