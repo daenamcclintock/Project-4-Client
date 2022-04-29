@@ -37,49 +37,45 @@ const MineProperties = (props) => {
     let propertyCards
 
     if(myProperties.length > 0) {
-        propertyCards = myProperties.map(property => (
-            <Card key={property._id} style={{ width: '25%' }} className="m-2">
-                <Card.Img variant="top" src="" />
-                <Card.Title className='m-2'>{property.name}</Card.Title>
+        propertyCards = myProperties.map(property => { 
+            return (<Card key={property._id} style={{ width: '25%' }} className="m-2">
+                <Card.Img 
+                src={property.image1} 
+                alt='property image' />
                 <Card.Body>
-                    <Card.Text>Seller: {!property.owner ? null : property.owner.username}</Card.Text>
                         <Link to={`/properties/${property._id}`}>
                             <div className='imgIP'>
-                                <Card.Img 
-                                src={property.image}
-                                alt='property image'
-                                />
+                                <Card.ImgOverlay>
+                                    <Card.Title className='seller'>Seller: {property.owner.fullName}</Card.Title>
+                                </Card.ImgOverlay>
                             </div>
                         </Link>
-                    <Card.Text> 
-
-                        
-                        <Link to={`/properties/${property._id}`}><button className='viewI'>View {property.name}</button></Link>
-                    </Card.Text>
                 </Card.Body>
-            </Card>
-        ))
+                <Card.Footer>
+                    <Card.Text>
+                        <Link to={`/properties/${property._id}`}>
+                            <Button variant="outline-dark">View Property</Button>
+                        </Link>
+                    </Card.Text>
+                    <Card.Text>
+                        {property.address}
+                    </Card.Text>
+                    <Card.Text>
+                        ${property.price / 1000000} M
+                    </Card.Text>
+                </Card.Footer>
+            </Card>)
+        })
     }
 
-    // return (
-    //     <>
-    //         <h3 className='titleText'>Browse My Properties</h3>
-    //         <Dropdown>
-    //             <Dropdown.Toggle id="dropdown-basic-button-2">
-    //                 Categories
-    //             </Dropdown.Toggle>
-
-    //             <Dropdown.Menu>
-    //                 <Link to = {`/products/clothing`} style={{textDecoration:'none' , color:'black'}}>Clothing</Link><br/>
-    //                 <Link to = {`/products/collectibles`} style={{textDecoration:'none', color:'black' }}>Collectibles</Link><br/>
-    //                 <Link to = {`/products/electronics`} style={{textDecoration:'none', color:'black'}}> Electronics </Link>
-    //             </Dropdown.Menu>
-    //         </Dropdown>
-    //         <div style={cardContainerLayout}>
-    //             {productCards}
-    //         </div>
-    //     </>
-    // )
+    return (
+        <>
+            <h3 className='titleText'>Browse My Properties</h3>
+            <div style={cardContainerLayout}>
+                {propertyCards}
+            </div>
+        </>
+    )
 }
 
 export default MineProperties
