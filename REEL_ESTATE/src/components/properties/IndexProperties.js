@@ -49,7 +49,7 @@ const IndexProperties = (props) => {
                         <Link to={`/properties/${property._id}`}>
                             <div className='imgIP'>
                                 <Card.ImgOverlay>
-                                    <Card.Title>Seller: {property.owner.fullName}</Card.Title>
+                                    <Card.Title className='seller'>Seller: {property.owner.fullName}</Card.Title>
                                 </Card.ImgOverlay>
                             </div>
                         </Link>

@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import {Navbar, InputGroup, FormControl, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Logo from '../../images/realestate.png'
+import '../../styling/Style.css'
 
 
 const linkStyle = {
@@ -90,6 +92,9 @@ const alwaysOptions = (
 const Header = ({ user }) => (
 	
 	<Navbar className='background-header' variant='dark' expand='md'>
+		{/* <div className='logo'>
+			<img src={Logo} alt='Company Logo' />
+		</div> */}
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
                 REEL ESTATE

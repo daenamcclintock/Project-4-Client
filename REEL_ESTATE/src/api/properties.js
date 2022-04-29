@@ -31,7 +31,7 @@ export const createProperty = (user, newProperty) => {
         headers: {
             Authorization: `Token token=${user.token}`
         },  
-        data: { property: newProperty }
+        data: { properties: newProperty }
     })
 }
 

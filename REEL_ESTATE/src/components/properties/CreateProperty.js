@@ -10,6 +10,8 @@ const CreateProperty = (props) => {
     const {user, msgAlert} = props
     const navigate = useNavigate()
 
+    console.log('this is property', property)
+
     const handleChange = (e) => {
         e.persist()
 
@@ -28,7 +30,7 @@ const CreateProperty = (props) => {
 
         createProperty(user, property)
             .then(res => {navigate(`/properties/${res.data.property._id}`)})
-            // .then(res => console.log('property id: ', res.data.property.))
+            // .then(res => console.log('property id: ', res.data.property._id))
             // Then we send success message
             .then( () =>
                 msgAlert({

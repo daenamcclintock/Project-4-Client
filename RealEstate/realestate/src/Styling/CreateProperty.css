@@ -1,0 +1,13 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.form>input,
+.form>select,
+.form>h3 {
+    margin-bottom: 1.5em;
+
+}

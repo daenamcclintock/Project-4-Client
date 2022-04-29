@@ -9,6 +9,7 @@ import ShowReview from '../reviews/ShowReview'
 import GiveReviewModal from "../reviews/CreateReview";
 import MessageModal from "../messages/CreateMessage";
 import ShowMessage from "../messages/ShowMessages";
+import Contact from "../messages/Contact";
 
 const ShowProperty = (props) => {
     const [modalOpen, setModalOpen] = useState(false)
@@ -195,14 +196,15 @@ const ShowProperty = (props) => {
                 updateProperty={updateProperty}
                 handleClose={() => setModalOpen(false)}
             />
-                {messages}
-                <MessageModal
-                    user={user}
-                    show= {messageModalOpen}
-                    property={property}
-                    triggerRefresh={() => setUpdated(prev => !prev)}
-                    handleClose={()=> setMessageModalOpen(false)}
-                />
+            {messages}
+            <MessageModal
+                user={user}
+                show= {messageModalOpen}
+                property={property}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+                handleClose={()=> setMessageModalOpen(false)}
+            />
+            <Contact />
         </div>
         </>
     )
