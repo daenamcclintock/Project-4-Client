@@ -11,12 +11,12 @@ const DesktopNavBar = () => {
         </div>
 
         <div className='DesktopNavRight_container'>
-            <h3>For Sale</h3> 
-            <h3>For Rent</h3> 
-            <Link to='/createproperty' style={{textDecoration: 'none', color: 'black'}}>
+            <h3 className='link'>For Sale</h3> 
+            <h3 className='link'>For Rent</h3> 
+            <Link className='link' to='/createproperty' style={{textDecoration: 'none', color: 'black'}}>
                 <h3>Post Your Property</h3> 
             </Link>
-            <h3>Contact Agency</h3> 
+            <h3 className='link'>Contact Agency</h3> 
         </div>
 
     </div>

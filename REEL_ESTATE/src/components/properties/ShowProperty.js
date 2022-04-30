@@ -134,14 +134,6 @@ const ShowProperty = (props) => {
                     <ul>
                         {showAmenities()}
                     </ul>
-                    
-                    {/* <Form onSubmit={handleSubmit}>
-                        {property.stock === 0 ? 
-                        <Button className="m-2" variant="primary" disabled>Add To Cart</Button>
-                        :
-                        <button className="signInB" type='submit'>Add To Cart</button>
-                        }
-                    </Form> */}
                         <button className="reviewB" onClick={()=> setReviewModalOpen(true)}> Leave a Seller Review</button>
             </Container>
             
