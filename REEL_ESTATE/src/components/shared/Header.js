@@ -32,24 +32,6 @@ const authenticatedOptions = ({ user, property }) => (
 				Change Password
 			</Link>
 		</Nav.Item>
-		<Nav.Item>
-		</Nav.Item>
-		<Nav.Item className='m-2'>
-			<Link to={`/favorites/${user._id}`} style={linkStyle}>
-				My Favorites
-			</Link>
-		</Nav.Item>
-		<InputGroup className="m-2">
-			<FormControl
-			className='search'
-			placeholder="Search Zip Code"
-			aria-label="Recipient's username"
-			aria-describedby="basic-addon2"
-			/>
-			<Button className='search-button' variant="outline-secondary" id="button-addon2">
-			Search
-			</Button>
-		</InputGroup>
 		<Nav.Item className='m-2'>
 			<Link to={`/messages`} style={linkStyle}>
 				My Messages

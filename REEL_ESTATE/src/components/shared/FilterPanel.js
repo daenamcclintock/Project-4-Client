@@ -96,9 +96,7 @@ const FilterPanel = (props) => {
     
     return (
         <>
-            <h3 className='titleText'>Filters</h3>
-            <div className="filters">
-                
+            <div className="filter-panel">
                 <label for='city'>City</label>
                 <div className="filter-options">
                     <select name='city' className='city-filter'>

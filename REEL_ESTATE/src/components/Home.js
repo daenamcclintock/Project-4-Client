@@ -7,7 +7,6 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h1>Browse Some Properties</h1>
 			<IndexProperties user={user} />
 		</>
 	)

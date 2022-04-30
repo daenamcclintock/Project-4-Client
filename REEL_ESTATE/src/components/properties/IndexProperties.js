@@ -3,6 +3,7 @@ import { Card, Dropdown,DropdownButton, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { getAllProperties } from '../../api/properties'
 import FilterPanel from '../shared/FilterPanel'
+import SearchBar from '../shared/SearchBar'
 
 const cardContainerLayout = {
     display: 'flex',
@@ -107,7 +108,9 @@ const IndexProperties = (props) => {
 
     return (
         <>
-            <FilterPanel properties={properties}/>
+            <SearchBar properties={properties}/>
+            <br></br>
+            <br></br>
             <div style={cardContainerLayout}>
                 {propertyCards}
             </div>
