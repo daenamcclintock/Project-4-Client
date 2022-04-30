@@ -79,7 +79,7 @@ const Header = ({ user }) => (
 		</div> */}
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
-                REEL ESTATE
+                LuxEstate
             </Link>
         </Navbar.Brand>
 		<Navbar.Toggle aria-controls='basic-navbar-nav' />
