@@ -48,28 +48,6 @@ const ShowProperty = (props) => {
             return {...prevProperty, ...updatedValue}
         })
     }
-    
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     console.log(typeof propertyId)
-
-    //     addToCart(propertyId, user)
-    //         // Then we send success message
-    //         .then(() =>
-    //             msgAlert({
-    //                 heading: 'Success!',
-    //                 message: 'Property Listing added successfully!',
-    //                 variant: 'success',
-    //         }))
-    //         // if there is an error, we'll send an error message
-    //         .catch(() =>
-    //             msgAlert({
-    //                 heading: 'Oh No!',
-    //                 message: 'Property could not be added',
-    //                 variant: 'danger',
-    //         }))
-    //     console.log('submitted!')
-    // }
 
     const removeTheProperty = () => {
         removeProperty(user, property._id)
@@ -112,17 +90,6 @@ const ShowProperty = (props) => {
         }
     }
 
-    let messages 
-    // if(property.owner == user._id) {
-    //     if(user.messages.length > 0) {
-    //         messages = user.messages.map(message => (
-    //             <ShowMessage key={message._id} updated={updated} message={message} user={user}
-    //             triggerRefresh={() => setUpdated(prev => !prev)}
-    //             />
-    //         ))
-    //     }
-    // }
-
     if(!property)
     {
         return (
@@ -134,7 +101,6 @@ const ShowProperty = (props) => {
         )
     }
 
-    // When you click 'Add To Cart' you need to send the propertyId to an order route to push it to productsOrdered array
     return(
         <>
         <div className="userNameT">
@@ -180,14 +146,14 @@ const ShowProperty = (props) => {
             </Container>
             
             <h3 className="titleText">Reviews: </h3>
-                {reviews}
-                <GiveReviewModal
-                    user={user}
-                    show= {reviewModalOpen}
-                    property={property}
-                    triggerRefresh={() => setUpdated(prev => !prev)}
-                    handleClose={()=> setReviewModalOpen(false)}
-                />
+            {reviews}
+            <GiveReviewModal
+                user={user}
+                show= {reviewModalOpen}
+                property={property}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+                handleClose={()=> setReviewModalOpen(false)}
+            />
             <EditPropertiesModel 
                 property={property}
                 show={modalOpen}
@@ -196,7 +162,6 @@ const ShowProperty = (props) => {
                 updateProperty={updateProperty}
                 handleClose={() => setModalOpen(false)}
             />
-            {messages}
             <MessageModal
                 user={user}
                 show= {messageModalOpen}

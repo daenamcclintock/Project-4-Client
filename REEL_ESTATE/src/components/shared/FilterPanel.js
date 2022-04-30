@@ -98,35 +98,36 @@ const FilterPanel = (props) => {
         <>
             <div className="filter-panel">
                 <label for='city'>City</label>
+                <br></br>
                 <div className="filter-options">
                     <select name='city' className='city-filter'>
                         <option value="All">All</option>
                         {cityOptions()}
                     </select>
                 </div>
-                
+                <br></br>
                 <label for='bedrooms'>Bedrooms</label>
                 <div className="filter-options">
                     <select name='city' className='city-filter'>
                         {bedroomsOptions()}
                     </select>
                 </div>
-                
+                <br></br>
                 <label for='bathrooms'>Bathrooms</label>
                 <div className="filter-options">
                     <select name='bathrooms' class='city-filter'>
                         {bathroomOptions()}
                     </select>
                 </div>
-            
-                <span class='label'>Square Footage</span>
+                <br></br>
+                <label class='label'>Square Footage</label>
                 <div className="min-sqft">
                     <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
                 </div>
                 <div className="max-sqft">
                     <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
                 </div>
-    
+                <br></br>
                 
                 <label for="customRange2" class="form-label">Price</label>
                 <input type="range" class="form-range" min="0" max="5" id="customRange2"></input>

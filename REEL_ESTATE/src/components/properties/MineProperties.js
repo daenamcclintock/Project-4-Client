@@ -70,7 +70,7 @@ const MineProperties = (props) => {
 
     return (
         <>
-            <h3 className='titleText'>Browse My Properties</h3>
+            <h3 className='titleText'>My Property Listings</h3>
             <div style={cardContainerLayout}>
                 {propertyCards}
             </div>
