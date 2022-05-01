@@ -158,19 +158,19 @@ const ShowProperty = (props) => {
                     <div className="House__detail" key={property._id}>
                         <Carousel>
                             <Carousel.Item>
-                                <img src={property.image1} alt="Property Image" />
+                                <img width={700} height={500} src={property.image1} alt="Property Image" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img src={property.image2} alt="Property Image" />
+                                <img width={900} height={500} src={property.image2} alt="Property Image" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img src={property.image3} alt="Property Image" />
+                                <img width={900} height={500} src={property.image3} alt="Property Image" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img src={property.image4} alt="Property Image" />
+                                <img width={900} height={500} src={property.image4} alt="Property Image" />
                             </Carousel.Item>
                             <Carousel.Item>
-                                <img src={property.image5} alt="Property Image" />
+                                <img width={900} height={500} src={property.image5} alt="Property Image" />
                             </Carousel.Item>
                         </Carousel>
                     <div className="info">

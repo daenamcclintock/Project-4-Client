@@ -167,5 +167,6 @@ input {
 }
 
 .property_price {
-  margin-left: 6em;
+  display: flex;
+  flex-direction: column;
 }
