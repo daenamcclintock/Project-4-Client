@@ -178,3 +178,9 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.property-metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

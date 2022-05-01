@@ -5,6 +5,10 @@ import { getAllProperties } from '../../api/properties'
 import FilterPanel from '../shared/FilterPanel'
 import SearchBar from '../shared/SearchBar'
 import '../../styling/Search.css'
+import { BsSearch } from "react-icons/bs";
+import { FaBed } from "react-icons/fa";
+import { FaBath } from "react-icons/fa";
+
 
 const cardContainerLayout = {
     display: 'flex',
@@ -65,7 +69,7 @@ const IndexProperties = (props) => {
                                                     <img src={property.image1}/>
                                                 </div>
                                                 <div class="inner-content">
-                                                    <h3 class="title">{property.address}</h3>
+                                                    <h3 class="title">{property.address} </h3>
                                                     <span class="post">Seller: {property.owner.fullName}</span>
                                                 </div>
                                             </div>
@@ -77,10 +81,12 @@ const IndexProperties = (props) => {
                     </Card.Body>
                         <Card.Footer>
                             <Card.Text>
+                                <div className='property-metrics'>
                                 <Link to={`/properties/${property._id}`}>
                                     <Button variant="outline-dark">View Property</Button>
                                 </Link>
-                                <span className='property_price'>${property.price / 1000000} M</span>
+                                    <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bedrooms}</span></h6>
+                                </div>
                             </Card.Text>
                         </Card.Footer>
                 </Card>
@@ -102,42 +108,85 @@ const cityOptions = () => {
         console.log('this is city', city[1])
         return (
             <option key={city[1]} value={city[1]}>{city[1]}</option>
-            )
-        })
-    }
-    
-    const bedroomsOptions = () => {
-        return properties.map((property) => {
-            return (
-                <option key={property.bedrooms} value={property.bedrooms}>{property.bedrooms}+ BR</option>
-                )
-            })
-        }
-        
-    const bathroomOptions = () => {
-        return properties.map((property) => {
-            return (
-                <option key={property.bathrooms} value={property.bathrooms}>{property.bathrooms}+ BA</option>
-                )
-            })
-        }
+        )
+    })
+}
         
         return (
             <>
-        <div className='SearchBar_container'>
-            <div className="searchBar_fields">
-                <div className="search_text">
-                    <h3>Search Luxury Real Estate</h3>
-                </div>
-                <div className="search_input">
-                    <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                </div>
-                <br></br>
-                <h3 className='titleText'>Property Filters</h3>
-                <br />
-            </div>
-            <div className="filter">
-                <FilterPanel properties={properties}/>
+                <div className='SearchBar_container'>
+                    <div className="searchBar_fields">
+                        <div className="search_text">
+                            <h3>Search Luxury Real Estate</h3>
+                        </div>
+                        <div className="search_input">
+                            <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
+                            <BsSearch />
+                        </div>
+                        <br></br>
+                        <h3 className='titleText'>Property Filters</h3>
+                        <br />
+                    </div>
+                    <div className="filter">
+                    <>
+                    <div className="filter-panel">
+                        <div className='city-filter'>
+                            <label for='city'>City</label>
+                        </div>
+                        <br></br>
+                        <div className="filter-options">
+                            <select name='city' className='city-filter'>
+                                <option value="All">All</option>
+                                {cityOptions()}
+                            </select>
+                        </div>
+                        <br></br>
+                        <div className='bedrooms-filter'>
+                            <label for='bedrooms'>Bedrooms</label>
+                        </div>
+                        <div className="filter-options">
+                            <select name='city' className='city-filter' onChange={(e) => {setBedrooms(e.target.value)}}>
+                                <option value='1'>1+</option>
+                                <option value='2'>2+</option>
+                                <option value='3'>3+</option>
+                                <option value='4'>4+</option>
+                                <option value='5'>5+</option>
+                                <option value='6'>6+</option>
+                                <option value='7'>7+</option>
+                                <option value='8'>8+</option>
+                                <option value='9'>9+</option>
+                                <option value='10'>10+</option>
+                            </select>
+                        </div>
+                        <br></br>
+                        <div className='bathrooms-filter'>
+                            <label for='bathrooms'>Bathrooms</label>
+                        </div>
+                        <div className="filter-options">
+                            <select name='bathrooms' class='city-filter' onChange={(e) => {setBathrooms(e.target.value)}}>
+                                <option value='1'>1+</option>
+                                <option value='2'>2+</option>
+                                <option value='3'>3+</option>
+                                <option value='4'>4+</option>
+                                <option value='5'>5+</option>
+                                <option value='6'>6+</option>
+                                <option value='7'>7+</option>
+                                <option value='8'>8+</option>
+                                <option value='9'>9+</option>
+                                <option value='10'>10+</option>
+                            </select>
+                        </div>
+                        <br></br>
+                        <label class='price-filter'>Price </label>
+                        <div className="min-price">
+                            <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
+                        </div>
+                        <br />
+                        <div className="max-price">
+                            <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
+                        </div>
+                    </div>
+                </>
             </div>
         </div>
         <br></br>

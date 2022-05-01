@@ -8,7 +8,8 @@ import EditPropertiesModel from "./EditProperties";
 import MessageModal from "../messages/CreateMessage";
 import ShowMessage from "../messages/ShowMessages";
 import Contact from "../messages/Contact";
-import '../../styling/HouseDescription.css'
+import { FaBed } from "react-icons/fa";
+import { FaBath } from "react-icons/fa";
 
 const ShowProperty = (props) => {
     const [modalOpen, setModalOpen] = useState(false)
@@ -166,10 +167,10 @@ const ShowProperty = (props) => {
                         <br></br>
                         <div className="more__info">
                         <div className="bedRoomCount">
-                            <h5>Bedrooms: {property.bedrooms}</h5>
+                            <h4><FaBed /> {property.bedrooms}</h4>
                         </div>
                         <div className="showersCount">
-                            <h5>Bathrooms: {property.bedrooms}</h5>
+                            <h4><FaBath /> {property.bedrooms}</h4>
                         </div>
                         {/* <div className="parkingSpace">
                             <DriveEtaIcon />
@@ -235,6 +236,7 @@ const ShowProperty = (props) => {
                         property={property}
                         triggerRefresh={() => setUpdated(prev => !prev)}
                         handleClose={()=> setMessageModalOpen(false)}
+                        msgAlert = {msgAlert}
                     />
                     </form>
                 </div>
