@@ -194,11 +194,7 @@ const ShowProperty = (props) => {
                     </div>
                     <div className="House__textDetail">
                         <h4>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Aliquam tempore, ullam nulla architecto dolorem soluta
-                        labore esse minus in reiciendis, eius deleniti officia
-                        ratione voluptate atque illo ab assumenda odit dolor! Beatae
-                        debitis distinctio libero?
+                        {property.description}
                         </h4>
                     </div>
                     </div>

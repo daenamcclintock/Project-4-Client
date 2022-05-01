@@ -82,7 +82,7 @@ code {
   padding: .5em;
 }
 
-input {
+.search_input {
   border: none;
   outline: none;
   font-size: larger;
