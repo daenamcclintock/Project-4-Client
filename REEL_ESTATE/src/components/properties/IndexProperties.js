@@ -8,6 +8,7 @@ import '../../styling/Search.css'
 import { BsSearch } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
 
 
 const cardContainerLayout = {
@@ -54,7 +55,8 @@ const IndexProperties = (props) => {
             else if (property.address.split(',')[1].toLowerCase().includes(searchTerm.toLowerCase())) {
                 return property
             }
-        }).map((property) => { 
+        }).map((property) => {
+            let cityState =  property.address.split(',')[1] + property.address.split(',')[2]
             return (
                 <Card key={property._id} style={{ width: '30%' }} className="container m-2">
                     <Card.Body>
@@ -81,10 +83,13 @@ const IndexProperties = (props) => {
                     </Card.Body>
                         <Card.Footer>
                             <Card.Text>
+                                <div className='city-state'>
+                                    <h6><MdLocationOn /> {property.address.split(',')[1] + property.address.split(',')[2]}</h6>
+                                </div>
                                 <div className='property-metrics'>
-                                <Link to={`/properties/${property._id}`}>
-                                    <Button variant="outline-dark">View Property</Button>
-                                </Link>
+                                    <Link to={`/properties/${property._id}`}>
+                                        <Button variant="outline-dark">View Property</Button>
+                                    </Link>
                                     <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bedrooms}</span></h6>
                                 </div>
                             </Card.Text>

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { removeMessage } from '../../api/messages'
+import { useNavigate } from 'react-router-dom'
 
 const ShowMessage = (props) => {
     const { user } = props
     const [updated, setUpdated] = useState(false)
+    const navigate = useNavigate()
 
     let messages = user.messages
     const messageId = messages.map((message) => message._id)
@@ -20,6 +22,7 @@ const ShowMessage = (props) => {
             console.log('THIS IS MESSAGE ID2', messageId)
         })
         removeMessage(user, user._id, messageId)
+            .then(() => navigate('/messages'))
             // .then(() => setUpdated(prev => !prev))
             // .then(() => window.location.reload(false))
             // if there is an error, we'll send an error message
