@@ -137,7 +137,7 @@ const ShowProperty = (props) => {
                     null
                 }
                 <div className="House__details">
-                    <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller</button></h4>
+                    <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller Directly</button></h4>
                     <h4 className="house__price"><b>{`${property.address}`}</b></h4>
                     <div className="House__detail" key={property._id}>
                         <Carousel>
@@ -220,76 +220,27 @@ const ShowProperty = (props) => {
                     <br />
             
                     <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
+                    
+                    <EditPropertiesModel 
+                        property={property}
+                        show={modalOpen}
+                        user={user}
+                        triggerRefresh={() => setUpdated(prev => !prev)}
+                        updateProperty={updateProperty}
+                        handleClose={() => setModalOpen(false)}
+                    />
+                    <MessageModal
+                        user={user}
+                        show= {messageModalOpen}
+                        property={property}
+                        triggerRefresh={() => setUpdated(prev => !prev)}
+                        handleClose={()=> setMessageModalOpen(false)}
+                    />
                     </form>
                 </div>
             </div>
         </>
     )
 }
-
-    // return(
-    //     <>
-    //     <div className="userNameT">
-    //         <Container>
-    //             <Card.Body>
-    //                 {
-    //                 user && (property.owner == user._id)
-    //                 ?
-    //                 <>
-    //                     <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
-    //                         Edit Property Listing
-    //                     </Button>
-    //                     <Button onClick={() => removeTheProperty()} className="m-2" variant="danger">
-    //                         Delete Property Listing
-    //                     </Button>
-    //                 </>
-    //                 :
-    //                 null
-    //                 }                    
-    //             </Card.Body>
-    //                 <h3><b>Seller: {property.owner.fullName}</b> <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Contact Agent</button></h3>
-    //                 <Card.Img className='imgSP' style={{width:'18rem'}}
-    //                     src={property.image1}
-    //                     alt='property image1'
-    //                 />
-    //                 <h4>{property.address}</h4>
-    //                 <p>${property.price}</p>
-    //                 <p>Bedrooms: {property.bedrooms}</p>
-    //                 <p>Bathrooms: {property.bathrooms}</p>
-    //                 <p>Amenities:</p>
-    //                 <ul>
-    //                     {showAmenities()}
-    //                 </ul>
-    //                     <button className="reviewB" onClick={()=> setReviewModalOpen(true)}> Leave a Seller Review</button>
-    //         </Container>
-            
-    //         <h3 className="titleText">Reviews: </h3>
-    //         {reviews}
-    //         <iewModal
-    //             user={user}
-    //             show= {reviewModalOpen}
-    //             property={property}
-    //             triggerRefresh={() => setUpdated(prev => !prev)}
-    //             handleClose={()=> setReviewModalOpen(false)}
-    //         />
-    //         <EditPropertiesModel 
-    //             property={property}
-    //             show={modalOpen}
-    //             user={user}
-    //             triggerRefresh={() => setUpdated(prev => !prev)}
-    //             updateProperty={updateProperty}
-    //             handleClose={() => setModalOpen(false)}
-    //         />
-    //         <MessageModal
-    //             user={user}
-    //             show= {messageModalOpen}
-    //             property={property}
-    //             triggerRefresh={() => setUpdated(prev => !prev)}
-    //             handleClose={()=> setMessageModalOpen(false)}
-    //         />
-    //         <Contact />
-    //     </div>
-    //     </>
-    // )
 
 export default ShowProperty

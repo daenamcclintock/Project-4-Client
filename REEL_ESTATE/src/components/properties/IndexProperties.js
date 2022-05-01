@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { getAllProperties } from '../../api/properties'
 import FilterPanel from '../shared/FilterPanel'
 import SearchBar from '../shared/SearchBar'
-
 import '../../styling/Search.css'
 
 const cardContainerLayout = {
@@ -151,38 +150,3 @@ const cityOptions = () => {
 
 
 export default IndexProperties
-
-
-// <Card key={property._id} style={{ width: '25%' }} className="container m-2">
-//     <div className='card'>
-//         <div className='imgContainer'>
-//             <Card.Img
-//             src={property.image1}
-//             alt='property image' />
-//         </div>
-//     </div>
-//     <div className='content'>
-//         <Card.Body>
-//                 <Link to={`/properties/${property._id}`}>
-//                     <div className='imgIP'>
-//                         <Card.ImgOverlay>
-//                             <Card.Title className='seller'>Seller: {property.owner.fullName}</Card.Title>
-//                         </Card.ImgOverlay>
-//                     </div>
-//                 </Link>
-//         </Card.Body>
-//         <Card.Footer>
-//             <Card.Text>
-//                 <Link to={`/properties/${property._id}`}>
-//                     <Button variant="outline-dark">View Property</Button>
-//                 </Link>
-//             </Card.Text>
-//             <Card.Text>
-//                 {property.address}
-//             </Card.Text>
-//             <Card.Text>
-//                 ${property.price / 1000000} M
-//             </Card.Text>
-//         </Card.Footer>
-//     </div>
-// </Card>
