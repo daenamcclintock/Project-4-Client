@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom";
 import { getOneProperty, updateProperty, removeProperty } from "../../api/properties";
-import { Spinner, Container, Carousel, Button } from "react-bootstrap";
+import { Spinner, Container, Carousel, Button, Card } from "react-bootstrap";
 // import { addToCart } from "../../api/products";
 import EditPropertiesModel from "./EditProperties";
 import MessageModal from "../messages/CreateMessage";
 import ShowMessage from "../messages/ShowMessages";
 import Contact from "../messages/Contact";
+import CreateMap from "../mapbox/CreateMap";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 
@@ -221,6 +222,7 @@ const ShowProperty = (props) => {
                     <br />
             
                     <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
+                    </form>
                     
                     <EditPropertiesModel 
                         property={property}
@@ -238,7 +240,11 @@ const ShowProperty = (props) => {
                         handleClose={()=> setMessageModalOpen(false)}
                         msgAlert = {msgAlert}
                     />
-                    </form>
+                    <br />
+                    <br />
+                    <Card key={property._id} style={{ width: '100%' }} className="container m-2">
+                        <CreateMap />
+                    </Card>
                 </div>
             </div>
         </>
