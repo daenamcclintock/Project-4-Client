@@ -70,11 +70,11 @@ code {
   margin-bottom: 3em;
 }
 
-.search_text, .search_input {
+.search_text, .search_input, .form_control {
   margin-bottom: 1em;
 }
 
-.search_input {
+.search_input, .form_control {
   display: flex;
   align-items: center;
   border: 1.5px solid black;
@@ -82,7 +82,7 @@ code {
   padding: .5em;
 }
 
-.search_input {
+.search_input, .form_control {
   border: none;
   outline: none;
   font-size: larger;

@@ -51,24 +51,72 @@ const PropertyForm = (props) => {
                 <Form.Label>Square Footage</Form.Label>
                 <Form.Control
                     className='form_control'
+                    type='number'
                     placeholder="Square Footage"
                     value={property.squareFootage}
                     name='squareFootage'
                     onChange={handleChange}
                 />
-                <Form.Label>Image</Form.Label>
+                <Form.Label>Image 1</Form.Label>
                 <Form.Control
                     className='form_control'
+                    type="text"
                     placeholder="Image URL"
                     value={property.image}
-                    name='image'
+                    name='image1'
+                    onChange={handleChange}
+                />
+                <Form.Label>Image 2</Form.Label>
+                <Form.Control
+                    className='form_control'
+                    type="text"
+                    placeholder="Image URL"
+                    value={property.image}
+                    name='image2'
+                    onChange={handleChange}
+                />
+                <Form.Label>Image 3</Form.Label>
+                <Form.Control
+                    className='form_control'
+                    type="text"
+                    placeholder="Image URL"
+                    value={property.image}
+                    name='image3'
+                    onChange={handleChange}
+                />
+                <Form.Label>Image 4</Form.Label>
+                <Form.Control
+                    className='form_control'
+                    type="text"
+                    placeholder="Image URL"
+                    value={property.image}
+                    name='image4'
+                    onChange={handleChange}
+                />
+                <Form.Label>Image 5</Form.Label>
+                <Form.Control
+                    className='form_control'
+                    type="text"
+                    placeholder="Image URL"
+                    value={property.image}
+                    name='image5'
                     onChange={handleChange}
                 />
                 <Form.Label>Amentities</Form.Label>
                 <Form.Control
                     className='form_control'
+                    type="text"
                     placeholder="Pool, Tennis Court, Water Views"
                     value={property.amentities}
+                    name='amenities'
+                    onChange={handleChange}
+                />
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                    className='form_control'
+                    type="text"
+                    placeholder="Features an open concept floor plan which features 4 Fireplaces, a lush Primary suite with custom built dressing room and marble clad en suite bath, an expansive deck off of the Great Room, and panoramic city + water views from your private roof deck."
+                    value={property.description}
                     name='amenities'
                     onChange={handleChange}
                 />
