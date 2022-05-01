@@ -17,7 +17,7 @@
     padding: .5em;
 }
 
-input {
+.search_input>input {
     border: none;
     outline: none;
     font-size: larger;

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom";
 import { getOneProperty, updateProperty, removeProperty } from "../../api/properties";
-import { Spinner, Container, Carousel, Card, Button, Form } from "react-bootstrap";
+import { Spinner, Container, Carousel, Button } from "react-bootstrap";
 // import { addToCart } from "../../api/products";
 import EditPropertiesModel from "./EditProperties";
-// import ReviewForm from '../reviews/ReviewForm'
-import ShowReview from '../reviews/ShowReview'
-import GiveReviewModal from "../reviews/CreateReview";
 import MessageModal from "../messages/CreateMessage";
 import ShowMessage from "../messages/ShowMessages";
 import Contact from "../messages/Contact";
@@ -41,7 +38,16 @@ const ShowProperty = (props) => {
             .catch(console.error)
     }, [updated])
 
-    console.log('property: ', property)
+
+    // Function to show the property amenitites
+    // let propertyAmenities = property.amenities
+    // const showAmenities = () => {
+    //     return propertyAmenities.map((amenity) => {
+    //         return (
+    //             <li>{amenity}</li>
+    //         )
+    //     })
+    // }
 
     const handleChange = (e) => {
         e.persist()
@@ -75,15 +81,6 @@ const ShowProperty = (props) => {
             })
     }
 
-    const showAmenities = () => {
-        const amenities = property.amenities
-        return amenities.map((amenity) => {
-            return (
-                <li>{amenity}</li>
-            )
-        })
-    }
-
     // ********** Email Contact Agent **********
     const resetForm = () => {
         setEmail("");
@@ -110,19 +107,6 @@ const ShowProperty = (props) => {
         console.log(error);
         });
     };
-
-
-    let reviews
-    
-    if(property) {
-        if(property.reviews.length > 0) {
-            reviews = property.reviews.map(review => (
-                <ShowReview key={review._id} updated={updated} review={review} property={property} user={user}
-                triggerRefresh={()=> setUpdated(prev => !prev)}
-                />
-            ))
-        }
-    }
 
     if(!property)
     {
@@ -153,7 +137,7 @@ const ShowProperty = (props) => {
                     null
                 }
                 <div className="House__details">
-                    <h4>Seller: {property.owner.fullName}</h4>
+                    <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller</button></h4>
                     <h4 className="house__price"><b>{`${property.address}`}</b></h4>
                     <div className="House__detail" key={property._id}>
                         <Carousel>
@@ -175,16 +159,17 @@ const ShowProperty = (props) => {
                         </Carousel>
                     <div className="info">
                         <h4 className="house__price"><b>{`$${property.price/1000000} M`}</b></h4>
-                        <h4 className="houseBedsAndState">{`${property.bedrooms} Bedroom house in ${property.address} for $${property.price/1000000} M`}</h4>
+                        <br></br>
+                        <h4 className="houseBedsAndState">{`${property.bedrooms} Bedroom house in ${property.address.split(',')[1] + ',' + property.address.split(',')[2]} for $${property.price/1000000} M`}</h4>
+                        <br></br>
                         <h4 className="house__location">{`House located at: ${property.address}`}</h4>
+                        <br></br>
                         <div className="more__info">
                         <div className="bedRoomCount">
-                            {/* <HotelIcon /> */}
-                            <h5>{property.bedrooms}</h5>
+                            <h5>Bedrooms: {property.bedrooms}</h5>
                         </div>
                         <div className="showersCount">
-                            {/* <BathtubIcon /> */}
-                            <h5>{property.bedrooms}</h5>
+                            <h5>Bathrooms: {property.bedrooms}</h5>
                         </div>
                         {/* <div className="parkingSpace">
                             <DriveEtaIcon />
@@ -192,16 +177,24 @@ const ShowProperty = (props) => {
                         </div> */}
                         </div>
                     </div>
+                    <div className="amenities">
+                    {/* Amenitites: */}
+                        <ul>
+                            {/* {showAmenities()} */}
+                        </ul>
+                    </div>
                     <div className="House__textDetail">
                         <h4>
-                        {property.description}
+                            <u>Description</u>
+                            <br></br>
+                            {property.description}
                         </h4>
                     </div>
                     </div>
                 </div>
                 <div className="Contact__agentForm">
                     <form className="Contact__AgentForm">
-                    <h3>Contact Agent</h3>
+                    <h3>Email Agency</h3>
                     <label>Email</label>
                     <input
                         type="email"
@@ -209,7 +202,6 @@ const ShowProperty = (props) => {
                         required
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <br />
                     <label>Subject</label>
                     <input
                         type="text"
@@ -227,7 +219,7 @@ const ShowProperty = (props) => {
                     ></textarea>
                     <br />
             
-                    <button onClick={sendMessage}>SEND MESSAGE</button>
+                    <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
                     </form>
                 </div>
             </div>
@@ -273,7 +265,7 @@ const ShowProperty = (props) => {
             
     //         <h3 className="titleText">Reviews: </h3>
     //         {reviews}
-    //         <GiveReviewModal
+    //         <iewModal
     //             user={user}
     //             show= {reviewModalOpen}
     //             property={property}

@@ -13,7 +13,7 @@ code {
 }
 
 .background-header {
-  background-color: skyblue;
+  background-color: rgb(53, 139, 205);
 }
 
 .search {
@@ -92,6 +92,14 @@ code {
 .filter-panel {
   display: flex;
   justify-content: space-between;
+}
+
+.price-filter, .city-filter, .bedrooms-filter, .bathrooms-filter, .min-price {
+  margin-left: 1.5em;
+}
+
+.max-price {
+  margin-left: 1em;
 }
 
 .House__detailContainer {

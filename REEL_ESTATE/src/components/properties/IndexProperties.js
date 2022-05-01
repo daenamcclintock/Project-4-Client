@@ -5,6 +5,8 @@ import { getAllProperties } from '../../api/properties'
 import FilterPanel from '../shared/FilterPanel'
 import SearchBar from '../shared/SearchBar'
 
+import '../../styling/Search.css'
+
 const cardContainerLayout = {
     display: 'flex',
     justifyContent: 'center',
@@ -21,6 +23,7 @@ const IndexProperties = (props) => {
     const [cities, setCities] = useState(null)
     const [bedrooms, setBedrooms] = useState()
     const [bathrooms, setBathrooms] = useState()
+    const [searchTerm, setSearchTerm] = useState('')
     
     useEffect(() => {
         getAllProperties()
@@ -41,7 +44,14 @@ const IndexProperties = (props) => {
     let propertyCards
 
     if(properties.length > 0) {
-        propertyCards = properties.map(property => { 
+        propertyCards = properties.filter((property) => {
+            if (searchTerm == '') {
+                return property
+            }
+            else if (property.address.split(',')[1].toLowerCase().includes(searchTerm.toLowerCase())) {
+                return property
+            }
+        }).map((property) => { 
             return (
                 <Card key={property._id} style={{ width: '30%' }} className="container m-2">
                     <Card.Body>
@@ -115,8 +125,22 @@ const cityOptions = () => {
         
         return (
             <>
-        <SearchBar properties={properties}/>
-        <br></br>
+        <div className='SearchBar_container'>
+            <div className="searchBar_fields">
+                <div className="search_text">
+                    <h3>Search Luxury Real Estate</h3>
+                </div>
+                <div className="search_input">
+                    <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
+                </div>
+                <br></br>
+                <h3 className='titleText'>Property Filters</h3>
+                <br />
+            </div>
+            <div className="filter">
+                <FilterPanel properties={properties}/>
+            </div>
+        </div>
         <br></br>
         <div style={cardContainerLayout}>
             {propertyCards}

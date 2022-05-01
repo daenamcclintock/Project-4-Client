@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import {Navbar, InputGroup, FormControl, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import Logo from '../../images/realestate.png'
 import '../../styling/Style.css'
 
 
