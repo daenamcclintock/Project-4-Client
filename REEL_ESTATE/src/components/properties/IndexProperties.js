@@ -55,6 +55,12 @@ const IndexProperties = (props) => {
             else if (property.address.split(',')[1].toLowerCase().includes(searchTerm.toLowerCase())) {
                 return property
             }
+            if (cities == 'All') {
+                return property
+            }
+            else if (property.address.split(',')[1].toLowerCase() == cities) {
+                return property
+            }
         }).map((property) => {
             let cityState =  property.address.split(',')[1] + property.address.split(',')[2]
             return (
@@ -140,7 +146,7 @@ const cityOptions = () => {
                         </div>
                         <br></br>
                         <div className="filter-options">
-                            <select name='city' className='city-filter'>
+                            <select name='city' className='city-filter' onChange={(e) => {setCities(e.target.value)}}>
                                 <option value="All">All</option>
                                 {cityOptions()}
                             </select>

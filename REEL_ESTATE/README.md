@@ -1,4 +1,4 @@
-# SEA LEVEL RISE REAL ESTATE REPRICER
+# LuxEstate
 
 ## USER STORY
 >* As a user, I want to be directed to a website where I can browse real estate offers (both for sale and not for sale) in tandem with data about current and future predicted sea level rise.
