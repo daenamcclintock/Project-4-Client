@@ -62,7 +62,7 @@ const PropertyForm = (props) => {
                     className='form_control'
                     type="text"
                     placeholder="Image URL"
-                    value={property.image}
+                    value={property.image1}
                     name='image1'
                     onChange={handleChange}
                 />
@@ -71,7 +71,7 @@ const PropertyForm = (props) => {
                     className='form_control'
                     type="text"
                     placeholder="Image URL"
-                    value={property.image}
+                    value={property.image2}
                     name='image2'
                     onChange={handleChange}
                 />
@@ -80,7 +80,7 @@ const PropertyForm = (props) => {
                     className='form_control'
                     type="text"
                     placeholder="Image URL"
-                    value={property.image}
+                    value={property.image3}
                     name='image3'
                     onChange={handleChange}
                 />
@@ -89,7 +89,7 @@ const PropertyForm = (props) => {
                     className='form_control'
                     type="text"
                     placeholder="Image URL"
-                    value={property.image}
+                    value={property.image4}
                     name='image4'
                     onChange={handleChange}
                 />
@@ -98,11 +98,11 @@ const PropertyForm = (props) => {
                     className='form_control'
                     type="text"
                     placeholder="Image URL"
-                    value={property.image}
+                    value={property.image5}
                     name='image5'
                     onChange={handleChange}
                 />
-                <Form.Label>Amentities</Form.Label>
+                {/* <Form.Label>Amentities</Form.Label>
                 <Form.Control
                     className='form_control'
                     type="text"
@@ -110,7 +110,7 @@ const PropertyForm = (props) => {
                     value={property.amentities}
                     name='amenities'
                     onChange={handleChange}
-                />
+                /> */}
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                     className='form_control'
