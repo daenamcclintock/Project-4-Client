@@ -123,128 +123,138 @@ const ShowProperty = (props) => {
 
     return (
         <>
-            <div className="House__detailContainer">
-                {
-                    user && (property.owner == user._id)
-                    ?
+            <div className="container">
+                    {/* {
+                        user && (property.owner == user._id)
+                        ?
+                        <>
+                            <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                                Edit Property Listing
+                            </Button>
+                            <Button onClick={() => removeTheProperty()} className="m-2" variant="danger">
+                                Delete Property Listing
+                            </Button>
+                        </>
+                        :
+                        null
+                    } */}
                     <>
-                        <Button onClick={() => setModalOpen(true)} className="m-2" variant="warning">
+                        <Button onClick={() => setModalOpen(true)} className="m-2" variant="outline-dark">
                             Edit Property Listing
                         </Button>
-                        <Button onClick={() => removeTheProperty()} className="m-2" variant="danger">
+                        <Button onClick={() => removeTheProperty()} className="m-2" variant="outline-danger">
                             Delete Property Listing
                         </Button>
                     </>
-                    :
-                    null
-                }
-                <div className="House__details">
-                    <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller Directly</button></h4>
-                    <h4 className="house__price"><b>{`${property.address}`}</b></h4>
-                    <div className="House__detail" key={property._id}>
-                        <Carousel>
-                            <Carousel.Item>
-                                <img width={700} height={500} src={property.image1} alt="Property Image" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img width={900} height={500} src={property.image2} alt="Property Image" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img width={900} height={500} src={property.image3} alt="Property Image" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img width={900} height={500} src={property.image4} alt="Property Image" />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img width={900} height={500} src={property.image5} alt="Property Image" />
-                            </Carousel.Item>
-                        </Carousel>
-                    <div className="info">
-                        <h4 className="house__price"><b>{`$${property.price/1000000} M`}</b></h4>
-                        <br></br>
-                        <h4 className="houseBedsAndState">{`${property.bedrooms} Bedroom house in ${property.address.split(',')[1] + ',' + property.address.split(',')[2]} for $${property.price/1000000} M`}</h4>
-                        <br></br>
-                        <h4 className="house__location">{`House located at: ${property.address}`}</h4>
-                        <br></br>
-                        <div className="more__info">
-                        <div className="bedRoomCount">
-                            <h4><FaBed /> {property.bedrooms}</h4>
-                        </div>
-                        <div className="showersCount">
-                            <h4><FaBath /> {property.bedrooms}</h4>
-                        </div>
-                        {/* <div className="parkingSpace">
-                            <DriveEtaIcon />
-                            <h5>{property.garages}</h5>
-                        </div> */}
-                        </div>
-                    </div>
-                    <div className="amenities">
-                    {/* Amenitites: */}
-                        <ul>
-                            {/* {showAmenities()} */}
-                        </ul>
-                    </div>
-                    <div className="House__textDetail">
-                        <h4>
-                            <u>Description</u>
+                <div className="House__detailContainer">
+                    <div className="House__details">
+                        <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller Directly</button></h4>
+                        <h4 className="house__price"><b>{`${property.address}`}</b></h4>
+                        <div className="House__detail" key={property._id}>
+                            <Carousel>
+                                <Carousel.Item>
+                                    <img width={700} height={500} src={property.image1} alt="Property Image" />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img width={900} height={500} src={property.image2} alt="Property Image" />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img width={900} height={500} src={property.image3} alt="Property Image" />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img width={900} height={500} src={property.image4} alt="Property Image" />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img width={900} height={500} src={property.image5} alt="Property Image" />
+                                </Carousel.Item>
+                            </Carousel>
+                        <div className="info">
+                            <h4 className="house__price"><b>{`$${property.price/1000000} M`}</b></h4>
                             <br></br>
-                            {property.description}
-                        </h4>
+                            <h4 className="houseBedsAndState">{`${property.bedrooms} Bedroom house in ${property.address.split(',')[1] + ',' + property.address.split(',')[2]} for $${property.price/1000000} M`}</h4>
+                            <br></br>
+                            <h4 className="house__location">{`House located at: ${property.address}`}</h4>
+                            <br></br>
+                            <div className="more__info">
+                            <div className="bedRoomCount">
+                                <h4><FaBed /> {property.bedrooms}</h4>
+                            </div>
+                            <div className="showersCount">
+                                <h4><FaBath /> {property.bedrooms}</h4>
+                            </div>
+                            {/* <div className="parkingSpace">
+                                <DriveEtaIcon />
+                                <h5>{property.garages}</h5>
+                            </div> */}
+                            </div>
+                        </div>
+                        <div className="amenities">
+                        {/* Amenitites: */}
+                            <ul>
+                                {/* {showAmenities()} */}
+                            </ul>
+                        </div>
+                        <div className="House__textDetail">
+                            <h4>
+                                <u>Description</u>
+                                <br></br>
+                                {property.description}
+                            </h4>
+                        </div>
+                        </div>
                     </div>
+                    <div className="Contact__agentForm">
+                        <form className="Contact__AgentForm">
+                        <h3>Email Agency</h3>
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            placeholder="Enter your email address"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <label>Subject</label>
+                        <input
+                            type="text"
+                            placeholder="Enter the subject of message"
+                            required
+                            onChange={(e) => setSubject(e.target.value)}
+                        />
+                        <br />
+                        <label>Message</label>
+                        <textarea
+                            cols="30"
+                            rows="5"
+                            required
+                            onChange={(e) => setMessage(e.target.value)}
+                        ></textarea>
+                        <br />
+                
+                        <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
+                        </form>
+                        
+                        <EditPropertiesModel 
+                            property={property}
+                            show={modalOpen}
+                            user={user}
+                            triggerRefresh={() => setUpdated(prev => !prev)}
+                            updateProperty={updateProperty}
+                            handleClose={() => setModalOpen(false)}
+                        />
+                        <MessageModal
+                            user={user}
+                            show= {messageModalOpen}
+                            property={property}
+                            triggerRefresh={() => setUpdated(prev => !prev)}
+                            handleClose={()=> setMessageModalOpen(false)}
+                            msgAlert = {msgAlert}
+                        />
+                        <br />
+                        <br />
+                        <Card key={property._id} style={{ width: '100%' }} className="container m-2">
+                            <CreateMap />
+                        </Card>
                     </div>
-                </div>
-                <div className="Contact__agentForm">
-                    <form className="Contact__AgentForm">
-                    <h3>Email Agency</h3>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        placeholder="Enter your email address"
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <label>Subject</label>
-                    <input
-                        type="text"
-                        placeholder="Enter the subject of message"
-                        required
-                        onChange={(e) => setSubject(e.target.value)}
-                    />
-                    <br />
-                    <label>Message</label>
-                    <textarea
-                        cols="30"
-                        rows="5"
-                        required
-                        onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
-                    <br />
-            
-                    <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
-                    </form>
-                    
-                    <EditPropertiesModel 
-                        property={property}
-                        show={modalOpen}
-                        user={user}
-                        triggerRefresh={() => setUpdated(prev => !prev)}
-                        updateProperty={updateProperty}
-                        handleClose={() => setModalOpen(false)}
-                    />
-                    <MessageModal
-                        user={user}
-                        show= {messageModalOpen}
-                        property={property}
-                        triggerRefresh={() => setUpdated(prev => !prev)}
-                        handleClose={()=> setMessageModalOpen(false)}
-                        msgAlert = {msgAlert}
-                    />
-                    <br />
-                    <br />
-                    <Card key={property._id} style={{ width: '100%' }} className="container m-2">
-                        <CreateMap />
-                    </Card>
                 </div>
             </div>
         </>
