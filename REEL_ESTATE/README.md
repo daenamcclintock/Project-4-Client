@@ -33,6 +33,15 @@
 8. Allow users to go to their MyProperties page, which will display listings that they added. On this page, users will have the ability to edit/delete listings.
 9. Search functionality
 
+## Wireframes
+![Index Page](ERD/Wireframes/Index_Page.png?raw=true "Index Page")
+
+![Login Page](ERD/Wireframes/Login_Page.png?raw=true "Index Page")
+
+![My Properties Page](ERD/Wireframes/My_Properties.png?raw=true "My Properties Page")
+
+![Show Page](ERD/Wireframes/Show_Page.png?raw=true "Show Page")
+
 ## Stretch Goals / Post-MVP
 1. Integrate sea level rise data and display on show page
 2. Predict price increase / decrease based on future projected sea level rise

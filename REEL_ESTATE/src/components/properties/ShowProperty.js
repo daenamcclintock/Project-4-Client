@@ -148,7 +148,7 @@ const ShowProperty = (props) => {
                     </>
                 <div className="House__detailContainer">
                     <div className="House__details">
-                        <h4>Seller: {property.owner.fullName} <button className="messageB" onClick={()=> setMessageModalOpen(true)}>Message Seller Directly</button></h4>
+                        <h4>Seller: {property.owner.fullName} <Button variant="outline-secondary" size="sm" onClick={()=> setMessageModalOpen(true)}>Message Seller Directly</Button></h4>
                         <h4 className="house__price"><b>{`${property.address}`}</b></h4>
                         <div className="House__detail" key={property._id}>
                             <Carousel>
