@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Card, Dropdown,DropdownButton, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { getAllProperties } from '../../api/properties'
-import FilterPanel from '../shared/FilterPanel'
-import SearchBar from '../shared/SearchBar'
 import '../../styling/Search.css'
 import { BsSearch } from "react-icons/bs";
 import { FaBed } from "react-icons/fa";
