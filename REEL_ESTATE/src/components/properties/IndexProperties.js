@@ -34,6 +34,8 @@ const IndexProperties = (props) => {
     console.log('this is cities', cities)
     console.log('this is bedrooms', bedrooms)
     console.log('this is bathrooms', bathrooms)
+    console.log('THIS IS MIN PRICE', minPrice)
+    console.log('THIS IS MAX PRICE', maxPrice)
 
     
     useEffect(() => {
@@ -90,7 +92,7 @@ const IndexProperties = (props) => {
             }
         })
         .filter((property) => {
-            if (minPrice == null) {
+            if (minPrice == null || minPrice == '') {
                 return property
             }
             else if (property.price >= minPrice) {
@@ -98,7 +100,7 @@ const IndexProperties = (props) => {
             }
         })
         .filter((property) => {
-            if (maxPrice == null) {
+            if (maxPrice == null || maxPrice == '') {
                 return property
             }
             else if (property.price <= maxPrice) {
