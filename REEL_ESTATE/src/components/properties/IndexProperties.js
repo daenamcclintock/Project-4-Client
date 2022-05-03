@@ -28,6 +28,11 @@ const IndexProperties = (props) => {
     const [bedrooms, setBedrooms] = useState()
     const [bathrooms, setBathrooms] = useState()
     const [searchTerm, setSearchTerm] = useState('')
+
+    console.log('this is cities', cities)
+    console.log('this is bedrooms', bedrooms)
+    console.log('this is bathrooms', bathrooms)
+
     
     useEffect(() => {
         getAllProperties()
@@ -55,13 +60,15 @@ const IndexProperties = (props) => {
             else if (property.address.split(',')[1].toLowerCase().includes(searchTerm.toLowerCase())) {
                 return property
             }
-            // if (cities == 'All') {
-            //     return property
-            // }
-            // else if (property.address.split(',')[1].toLowerCase() == cities) {
-            //     return property
-            // }
-        }).map((property) => {
+        }).filter((property) => {
+            if (cities == 'All') {
+                return property
+            }
+            else if (property.address.split(',')[1] == cities) {
+                return property
+            }
+        })
+        .map((property) => {
             let cityState =  property.address.split(',')[1] + property.address.split(',')[2]
             return (
                 <Card key={property._id} style={{ width: '30%' }} className="container m-2">
@@ -106,13 +113,7 @@ const IndexProperties = (props) => {
     })
 }
 
-const cityFilter = () => {
-    properties.map(property => {
-        const city = property.address.split(',')[1]
-        
-    })
-}
-
+// Function to create the city filter options based on the cities listed in the properties data addresses
 const cityOptions = () => {
     return properties.map(property => {
         const city = property.address.split(',')
@@ -122,7 +123,8 @@ const cityOptions = () => {
         )
     })
 }
-        
+
+        // Returns the real estate filters as well as the property cards
         return (
             <>
                 <div className='SearchBar_container'>
@@ -156,7 +158,7 @@ const cityOptions = () => {
                             <label for='bedrooms'>Bedrooms</label>
                         </div>
                         <div className="filter-options">
-                            <select name='city' className='city-filter' onChange={(e) => {setBedrooms(e.target.value)}}>
+                            <select name='city' className='bedrooms-filter' onChange={(e) => {setBedrooms(e.target.value)}}>
                                 <option value='1'>1+</option>
                                 <option value='2'>2+</option>
                                 <option value='3'>3+</option>
