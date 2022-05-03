@@ -165,87 +165,86 @@ const cityOptions = () => {
 
         // Returns the real estate filters as well as the property cards
         return (
-            <>
-                <div className='SearchBar_container'>
-                    <div className="searchBar_fields">
-                        <div className="search_text">
-                            <h3>Search Luxury Real Estate</h3>
+                <>
+                    <div className='SearchBar_container'>
+                        <div className="searchBar_fields">
+                            <div className="search_text">
+                                <h3>Search Luxury Real Estate</h3>
+                            </div>
+                            <div className="search_input">
+                                <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
+                                <BsSearch />
+                            </div>
                         </div>
-                        <div className="search_input">
-                            <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                            <BsSearch />
-                        </div>
-                        <br></br>
-                        <h3 className='titleText'>Property Filters</h3>
-                        <br />
-                    </div>
-                    <div className="filter">
-                    <>
-                    <div className="filter-panel">
-                        <div className='city-filter'>
-                            <label for='city'>City</label>
-                        </div>
-                        <br></br>
-                        <div className="filter-options">
-                            <select name='city' className='city-filter' onChange={(e) => {setCities(e.target.value)}}>
-                                <option value="All">All</option>
-                                {cityOptions()}
-                            </select>
-                        </div>
-                        <br></br>
-                        <div className='bedrooms-filter'>
-                            <label for='bedrooms'>Bedrooms</label>
-                        </div>
-                        <div className="filter-options">
-                            <select name='city' className='bedrooms-filter' onChange={(e) => {setBedrooms(e.target.value)}}>
-                                <option value='1'>1+</option>
-                                <option value='2'>2+</option>
-                                <option value='3'>3+</option>
-                                <option value='4'>4+</option>
-                                <option value='5'>5+</option>
-                                <option value='6'>6+</option>
-                                <option value='7'>7+</option>
-                                <option value='8'>8+</option>
-                                <option value='9'>9+</option>
-                                <option value='10'>10+</option>
-                            </select>
-                        </div>
-                        <br></br>
-                        <div className='bathrooms-filter'>
-                            <label for='bathrooms'>Bathrooms</label>
-                        </div>
-                        <div className="filter-options">
-                            <select name='bathrooms' class='city-filter' onChange={(e) => {setBathrooms(e.target.value)}}>
-                                <option value='1'>1+</option>
-                                <option value='2'>2+</option>
-                                <option value='3'>3+</option>
-                                <option value='4'>4+</option>
-                                <option value='5'>5+</option>
-                                <option value='6'>6+</option>
-                                <option value='7'>7+</option>
-                                <option value='8'>8+</option>
-                                <option value='9'>9+</option>
-                                <option value='10'>10+</option>
-                            </select>
-                        </div>
-                        <br></br>
-                        <label class='price-filter'>Price </label>
-                        <div className="min-price">
-                            <input type='text' name='min-square-footage' className='min-square-footage' placeholder='0' onChange={(e) => {setMinPrice(e.target.value)}}></input>
-                        </div>
-                        <br />
-                        <div className="max-price">
-                            <input type='text' name='max-square-footage' className='max-square-footage' placeholder='100000000' onChange={(e) => {setMaxPrice(e.target.value)}}></input>
-                        </div>
-                    </div>
-                </>
+                <div className="filter">
+                        <>
+                    <br />
+                    <Card>
+                        <Card.Body>
+                            <h3 className='titleText'>Property Filters</h3>
+                        </Card.Body>
+                        <Card.Footer>
+                            <div className="filter-panel">
+                                <div className='city-filter'>
+                                    <label for='city'>City</label>
+                                </div>
+                                <div className="filter-options">
+                                    <select name='city' className='city-filter' onChange={(e) => {setCities(e.target.value)}}>
+                                        <option value="All">All</option>
+                                        {cityOptions()}
+                                    </select>
+                                </div>
+                                <div className='bedrooms-filter'>
+                                    <label for='bedrooms'>Bedrooms</label>
+                                </div>
+                                <div className="filter-options">
+                                    <select name='city' className='bedrooms-filter' onChange={(e) => {setBedrooms(e.target.value)}}>
+                                        <option value='1'>1+</option>
+                                        <option value='2'>2+</option>
+                                        <option value='3'>3+</option>
+                                        <option value='4'>4+</option>
+                                        <option value='5'>5+</option>
+                                        <option value='6'>6+</option>
+                                        <option value='7'>7+</option>
+                                        <option value='8'>8+</option>
+                                        <option value='9'>9+</option>
+                                        <option value='10'>10+</option>
+                                    </select>
+                                </div>
+                                <div className='bathrooms-filter'>
+                                    <label for='bathrooms'>Bathrooms</label>
+                                </div>
+                                <div className="filter-options">
+                                    <select name='bathrooms' class='city-filter' onChange={(e) => {setBathrooms(e.target.value)}}>
+                                        <option value='1'>1+</option>
+                                        <option value='2'>2+</option>
+                                        <option value='3'>3+</option>
+                                        <option value='4'>4+</option>
+                                        <option value='5'>5+</option>
+                                        <option value='6'>6+</option>
+                                        <option value='7'>7+</option>
+                                        <option value='8'>8+</option>
+                                        <option value='9'>9+</option>
+                                        <option value='10'>10+</option>
+                                    </select>
+                                </div>
+                                <label class='price-filter'>Price </label>
+                                <div className="min-price">
+                                    <input type='text' name='min-square-footage' className='min-square-footage' placeholder='Min' onChange={(e) => {setMinPrice(e.target.value)}}></input>
+                                </div>
+                                <div className="max-price">
+                                    <input type='text' name='max-square-footage' className='max-square-footage' placeholder='Max' onChange={(e) => {setMaxPrice(e.target.value)}}></input>
+                                </div>
+                            </div>
+                        </Card.Footer>
+                    </Card>
+                    </>
+                </div>
             </div>
-        </div>
-        <br></br>
-        <div style={cardContainerLayout}>
-            {propertyCards}
-        </div>
-    </>
+            <div style={cardContainerLayout}>
+                {propertyCards}
+            </div>
+        </>
     )
 }
 
