@@ -25,9 +25,11 @@ const categoryLinks = {
 const IndexProperties = (props) => {
     const [properties, setProperties] = useState(null)
     const [cities, setCities] = useState(null)
-    const [bedrooms, setBedrooms] = useState()
-    const [bathrooms, setBathrooms] = useState()
+    const [bedrooms, setBedrooms] = useState(null)
+    const [bathrooms, setBathrooms] = useState(null)
     const [searchTerm, setSearchTerm] = useState('')
+    const [minPrice, setMinPrice] = useState(null)
+    const [maxPrice, setMaxPrice] = useState(null)
 
     console.log('this is cities', cities)
     console.log('this is bedrooms', bedrooms)
@@ -52,7 +54,9 @@ const IndexProperties = (props) => {
 
     let propertyCards
 
+    // If properties exist, run the below logic
     if(properties.length > 0) {
+        // Logic for the property filters
         propertyCards = properties.filter((property) => {
             if (searchTerm == '') {
                 return property
@@ -60,11 +64,44 @@ const IndexProperties = (props) => {
             else if (property.address.split(',')[1].toLowerCase().includes(searchTerm.toLowerCase())) {
                 return property
             }
-        }).filter((property) => {
-            if (cities == 'All') {
+        })
+        .filter((property) => {
+            if (cities == 'All' || cities == null) {
                 return property
             }
             else if (property.address.split(',')[1] == cities) {
+                return property
+            }
+        })
+        .filter((property) => {
+            if (bedrooms == null) {
+                return property
+            }
+            else if (property.bedrooms >= bedrooms) {
+                return property
+            }
+        })
+        .filter((property) => {
+            if (bathrooms == null) {
+                return property
+            }
+            else if (property.bathrooms >= bathrooms) {
+                return property
+            }
+        })
+        .filter((property) => {
+            if (minPrice == null) {
+                return property
+            }
+            else if (property.price >= minPrice) {
+                return property
+            }
+        })
+        .filter((property) => {
+            if (maxPrice == null) {
+                return property
+            }
+            else if (property.price <= maxPrice) {
                 return property
             }
         })
@@ -74,18 +111,18 @@ const IndexProperties = (props) => {
                 <Card key={property._id} style={{ width: '30%' }} className="container m-2">
                     <Card.Body>
                         <Link to={`/properties/${property._id}`}>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-20 col-sm-24">
-                                        <div class="box">
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-md-20 col-sm-24">
+                                        <div className="box">
                                             <img src={property.image1}/>
-                                            <div class="box-content">
-                                                <div class="overlay-img">
+                                            <div className="box-content">
+                                                <div className="overlay-img">
                                                     <img src={property.image1}/>
                                                 </div>
-                                                <div class="inner-content">
-                                                    <h3 class="title">{property.address} </h3>
-                                                    <span class="post">Seller: {property.owner.fullName}</span>
+                                                <div className="inner-content">
+                                                    <h3 className="title">{property.address} </h3>
+                                                    <span className="post">Seller: {property.owner.fullName}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +140,7 @@ const IndexProperties = (props) => {
                                     <Link to={`/properties/${property._id}`}>
                                         <Button variant="outline-dark">View Property</Button>
                                     </Link>
-                                    <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bedrooms}</span></h6>
+                                    <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bathrooms}</span></h6>
                                 </div>
                             </Card.Text>
                         </Card.Footer>
@@ -192,11 +229,11 @@ const cityOptions = () => {
                         <br></br>
                         <label class='price-filter'>Price </label>
                         <div className="min-price">
-                            <input type='text' name='min-square-footage' class='min-square-footage' value='0'></input>
+                            <input type='text' name='min-square-footage' className='min-square-footage' placeholder='0' onChange={(e) => {setMinPrice(e.target.value)}}></input>
                         </div>
                         <br />
                         <div className="max-price">
-                            <input type='text' name='max-square-footage' class='max-square-footage' value='15000'></input>
+                            <input type='text' name='max-square-footage' className='max-square-footage' placeholder='100000000' onChange={(e) => {setMaxPrice(e.target.value)}}></input>
                         </div>
                     </div>
                 </>

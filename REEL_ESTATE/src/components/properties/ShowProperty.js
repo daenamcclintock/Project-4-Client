@@ -180,7 +180,7 @@ const ShowProperty = (props) => {
                                 <h4><FaBed /> {property.bedrooms}</h4>
                             </div>
                             <div className="showersCount">
-                                <h4><FaBath /> {property.bedrooms}</h4>
+                                <h4><FaBath /> {property.bathrooms}</h4>
                             </div>
                             {/* <div className="parkingSpace">
                                 <DriveEtaIcon />

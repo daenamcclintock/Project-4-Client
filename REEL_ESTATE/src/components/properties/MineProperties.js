@@ -84,7 +84,7 @@ const MineProperties = (props) => {
                                     <Link to={`/properties/${property._id}`}>
                                         <Button variant="outline-dark">View Property</Button>
                                     </Link>
-                                    <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bedrooms}</span></h6>
+                                    <h6 className='property-price'>${property.price / 1000000} M &nbsp;&nbsp;&nbsp; <span><FaBed /> {property.bedrooms}</span> &nbsp;&nbsp;<span><FaBath /> {property.bathrooms}</span></h6>
                                 </div>
                             </Card.Text>
                         </Card.Footer>
