@@ -9,42 +9,46 @@ const MessageForm = (props) => {
 
     return (
         <Container className="justify-content-center">
-        <div className='fixed-left'>
-        <Form onSubmit={handleSubmit}>
-            <Form.Label >Full Name</Form.Label>
-            <Form.Control as='input'
-                type="text" 
-                placeholder="John Doe"        
-                // value={message.message}
-                name='fullName'
-                onChange={handleChange}
-            />
-            <Form.Label >Email Address</Form.Label>
-            <Form.Control as='input' 
-                type="text"
-                placeholder="Enter Email Address"        
-                // value={message.message}
-                name='email'
-                onChange={handleChange}
-            />
-            <Form.Label >Phone Number</Form.Label>
-            <Form.Control as='input'
-                type='number'
-                placeholder="Enter Phone Number"        
-                // value={message.message}
-                name='phoneNumber'
-                onChange={handleChange}
-            />
-            <Form.Label >Message to Agent</Form.Label>
-            <Form.Control as='textarea' 
-                placeholder="Send Seller a Message"        
-                value={message.message}
-                name='message'
-                onChange={handleChange}
-            />
-            <Button type='submit'>Submit</Button>
-        </Form>
-        </div>
+            <div className='fixed-left'>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Label >Full Name</Form.Label>
+                    <Form.Control as='input'
+                        type="text" 
+                        placeholder="John Doe"        
+                        // value={message.message}
+                        name='fullName'
+                        onChange={handleChange}
+                    />
+                    <br />
+                    <Form.Label >Email Address</Form.Label>
+                    <Form.Control as='input' 
+                        type="text"
+                        placeholder="Enter Email Address"        
+                        // value={message.message}
+                        name='email'
+                        onChange={handleChange}
+                    />
+                    <br />
+                    <Form.Label >Phone Number</Form.Label>
+                    <Form.Control as='input'
+                        type='number'
+                        placeholder="Enter Phone Number"        
+                        // value={message.message}
+                        name='phoneNumber'
+                        onChange={handleChange}
+                    />
+                    <br />
+                    <Form.Label >Message to Agent</Form.Label>
+                    <Form.Control as='textarea' 
+                        placeholder="Send Seller a Message"        
+                        value={message.message}
+                        name='message'
+                        onChange={handleChange}
+                    />
+                    <br />
+                    <Button type='submit'>Submit</Button>
+                </Form>
+            </div>
         </Container> 
     )
 }

@@ -170,20 +170,18 @@ const cityOptions = () => {
 
         // Returns the real estate filters as well as the property cards
         return (
-                <>
-                    <div className='SearchBar_container'>
-                        <div className="searchBar_fields">
-                            <div className="search_text">
-                                <h3>Search Luxury Real Estate</h3>
-                            </div>
-                            <div className="search_input">
-                                <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
-                                <BsSearch />
-                            </div>
-                        </div>
+        <>
+            <div className='SearchBar_container'>
+                <div className="searchBar_fields">
+                    <div className="search_text">
+                        <h3>Search Luxury Real Estate</h3>
+                    </div>
+                    <div className="search_input">
+                        <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>
+                        <BsSearch />
+                    </div>
+                </div>
                 <div className="filter">
-                        <>
-                    <br />
                     <Card>
                         <Card.Body>
                             <h3 className='titleText'>Property Filters</h3>
@@ -243,7 +241,6 @@ const cityOptions = () => {
                             </div>
                         </Card.Footer>
                     </Card>
-                    </>
                 </div>
             </div>
             <div style={cardContainerLayout}>
