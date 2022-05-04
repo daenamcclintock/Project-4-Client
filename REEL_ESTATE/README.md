@@ -1,5 +1,11 @@
 # LuxEstate
 
+## INSTALLATION INSTRUCTIONS
+1. Fork and clone the repository
+2. CD into the REEL_ESTATE directory
+3. Run ```npm install``` to install dependencies
+4. Run ```npm start``` to start the server
+
 ## USER STORY
 >* As a user, I want to be directed to a website where I can browse real estate offers (both for sale and not for sale) in tandem with data about current and future predicted sea level rise.
 
@@ -19,10 +25,10 @@
 >* Third party Geospacial World API for sea level rise data by address (https://www.geospatialworld.net/news/sea-level-rise-data-for-every-address-in-the-usa-is-now-in-the-hazardhub-api/)
 >* Third party GoogleMaps API for geolocation of property search
 
-## Tech Stack
+## TECH STACK
 >* I will be using a tech stack comprised of Django/Python on the back end and Javascript/React for the front end.
 
-## MVP of project
+## MVP OF PROJECT
 1. Allow users to sign-up, login, and logout
 2. Allow users to browse real estate based on searching an address or zip code
 3. Allow users to click on individual listings, bringing them to the show page of the listing with property information.
@@ -33,16 +39,23 @@
 8. Allow users to go to their MyProperties page, which will display listings that they added. On this page, users will have the ability to edit/delete listings.
 9. Search functionality
 
-## Wireframes
-![Index Page](ERD/Wireframes/Index_Page.png?raw=true "Index Page")
+## ERD
+![ERD](ERD/ERD.png?raw=true "ERD")
 
+## Wireframes
+Login Page
 ![Login Page](ERD/Wireframes/Login_Page.png?raw=true "Index Page")
 
+Index Page
+![Index Page](ERD/Wireframes/Index_Page.png?raw=true "Index Page")
+
+My Properties Page
 ![My Properties Page](ERD/Wireframes/My_Properties.png?raw=true "My Properties Page")
 
+Show Page
 ![Show Page](ERD/Wireframes/Show_Page.png?raw=true "Show Page")
 
-## Stretch Goals / Post-MVP
+## STRETCH GOALS / POST-MVP
 1. Integrate sea level rise data and display on show page
 2. Predict price increase / decrease based on future projected sea level rise
 3. Integrate Google Maps API to display geolocation map of search

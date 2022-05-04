@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Nav from 'react-bootstrap/Nav'
-import {Navbar, InputGroup, FormControl, Button} from 'react-bootstrap'
+import {Navbar} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../../styling/Style.css'
 
@@ -9,11 +9,8 @@ const linkStyle = {
     color: 'white',
     textDecoration: 'none'
 }
-const categoryLinkStyle = {
-    color: 'black',
-    textDecoration: 'none',
-}
 
+// Header options that are only displayed while the user is currently logged in
 const authenticatedOptions = ({ user, property }) => (
 	<>
 		<Nav.Item className='m-2'>
@@ -44,6 +41,7 @@ const authenticatedOptions = ({ user, property }) => (
 	</>
 )
 
+// Header options that are only displayed while the user is not currently signed in
 const unauthenticatedOptions = (
 	<>
         <Nav.Item className='m-2'>
@@ -55,6 +53,7 @@ const unauthenticatedOptions = (
 	</>
 )
 
+// Header options that are always displayed
 const alwaysOptions = (
 	<>
 		<Nav.Item className='m-2'>
@@ -70,12 +69,9 @@ const alwaysOptions = (
 	</>
 )
 
+// Function to create the header
 const Header = ({ user }) => (
-	
 	<Navbar className='background-header' variant='dark' expand='md'>
-		{/* <div className='logo'>
-			<img src={Logo} alt='Company Logo' />
-		</div> */}
 		<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
                 LuxEstate
