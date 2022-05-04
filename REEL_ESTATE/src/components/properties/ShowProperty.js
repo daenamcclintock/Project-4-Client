@@ -189,7 +189,7 @@ const ShowProperty = (props) => {
                     </div>
                     <div className="Contact__agentForm">
                         <Card>
-                            <Card.Header>
+                            <Card.Header className="email-header">
                                 <h3>Email Agency</h3>
                             </Card.Header>
                             <Card.Body>
@@ -219,7 +219,7 @@ const ShowProperty = (props) => {
                                     <br />
                                 </form>
                             </Card.Body>
-                            <Card.Footer>
+                            <Card.Footer className="send-message-button">
                                     <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
                             </Card.Footer>
                         </Card>

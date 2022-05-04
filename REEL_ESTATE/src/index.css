@@ -210,3 +210,12 @@ code {
   text-align: center;
   margin-bottom: .5em;
 }
+
+.send-message-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-header {
+  text-align: center;
+}
