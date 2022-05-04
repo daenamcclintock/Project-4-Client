@@ -51,19 +51,7 @@ const ShowProperty = (props) => {
     //     })
     // }
 
-    const handleChange = (e) => {
-        e.persist()
-
-        setProperty(prevProperty => {
-            const name = e.target.name
-            let value = e.target.value
-            
-            const updatedValue = { [name]:value }
-
-            return {...prevProperty, ...updatedValue}
-        })
-    }
-
+    // Function to delete a property
     const removeTheProperty = () => {
         removeProperty(user, property._id)
         .then(() => {
@@ -170,26 +158,22 @@ const ShowProperty = (props) => {
                             </Carousel>
                         <div className="info">
                             <h4 className="house__price"><b>{`$${property.price/1000000} M`}</b></h4>
-                            <br></br>
+                            <br/>
                             <h4 className="houseBedsAndState">{`${property.bedrooms} Bedroom house in ${property.address.split(',')[1] + ',' + property.address.split(',')[2]} for $${property.price/1000000} M`}</h4>
-                            <br></br>
+                            <br/>
                             <h4 className="house__location">{`House located at: ${property.address}`}</h4>
-                            <br></br>
+                            <br/>
                             <div className="more__info">
-                            <div className="bedRoomCount">
-                                <h4><FaBed /> {property.bedrooms}</h4>
-                            </div>
-                            <div className="showersCount">
-                                <h4><FaBath /> {property.bathrooms}</h4>
-                            </div>
-                            {/* <div className="parkingSpace">
-                                <DriveEtaIcon />
-                                <h5>{property.garages}</h5>
-                            </div> */}
+                                <div className="bedRoomCount">
+                                    <h4><FaBed /> {property.bedrooms}</h4>
+                                </div>
+                                <div className="showersCount">
+                                    <h4><FaBath /> {property.bathrooms}</h4>
+                                </div>
                             </div>
                         </div>
                         <div className="amenities">
-                        {/* Amenitites: */}
+                            <h4>Amenitites:</h4>
                             <ul>
                                 {/* {showAmenities()} */}
                             </ul>
@@ -197,41 +181,48 @@ const ShowProperty = (props) => {
                         <div className="House__textDetail">
                             <h4>
                                 <u>Description</u>
-                                <br></br>
+                                <br/>
                                 {property.description}
                             </h4>
                         </div>
                         </div>
                     </div>
                     <div className="Contact__agentForm">
-                        <form className="Contact__AgentForm">
-                        <h3>Email Agency</h3>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            placeholder="Enter your email address"
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <label>Subject</label>
-                        <input
-                            type="text"
-                            placeholder="Enter the subject of message"
-                            required
-                            onChange={(e) => setSubject(e.target.value)}
-                        />
-                        <br />
-                        <label>Message</label>
-                        <textarea
-                            cols="30"
-                            rows="5"
-                            required
-                            onChange={(e) => setMessage(e.target.value)}
-                        ></textarea>
-                        <br />
-                
-                        <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
-                        </form>
+                        <Card>
+                            <Card.Header>
+                                <h3>Email Agency</h3>
+                            </Card.Header>
+                            <Card.Body>
+                                <form className="Contact__AgentForm">
+                                    <label>Email</label>
+                                    <input
+                                        type="email"
+                                        placeholder="Enter your email address"
+                                        required
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                    <label>Subject</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Enter the subject of message"
+                                        required
+                                        onChange={(e) => setSubject(e.target.value)}
+                                    />
+                                    <br />
+                                    <label>Message</label>
+                                    <textarea
+                                        cols="30"
+                                        rows="5"
+                                        required
+                                        onChange={(e) => setMessage(e.target.value)}
+                                    ></textarea>
+                                    <br />
+                                </form>
+                            </Card.Body>
+                            <Card.Footer>
+                                    <Button variant="secondary" size="lg" onClick={sendMessage}>SEND MESSAGE</Button>
+                            </Card.Footer>
+                        </Card>
                         
                         <EditPropertiesModel 
                             property={property}

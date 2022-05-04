@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import {Modal} from 'react-bootstrap'
-import { updateProperty } from '../../api/properties'
+import updateProperty from '../../api/properties'
 import PropertyForm from '../shared/PropertyForm'
 
 const EditPropertiesModel = (props) => {
     const { user, show, handleClose, updateProperty, triggerRefresh } = props
     const [property, setProperty] = useState(props.property)
 
+    // Function that sets the state of property to the updated value of the edit
     const handleChange = (e) => {
         e.persist()
 
@@ -23,8 +24,7 @@ const EditPropertiesModel = (props) => {
         })
     }
 
-
-
+    // Function to update the property when the form is submitted
     const handleSubmit = (e) => {
         
         e.preventDefault()
@@ -35,6 +35,7 @@ const EditPropertiesModel = (props) => {
             .catch(console.error)
     }
     
+    // Returns the edit modal and populates the field with the current property data
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton></Modal.Header>
