@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Card, Dropdown,DropdownButton, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { getAllProperties } from '../../api/properties'
 import '../../styling/Search.css'
@@ -8,16 +8,11 @@ import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
-
+// Creates the styling for the card containers
 const cardContainerLayout = {
     display: 'flex',
     justifyContent: 'center',
     flexFlow: 'row wrap'
-}
-
-const categoryLinks = {
-    color: 'black',
-    textDecoration: 'none'
 }
 
 const IndexProperties = (props) => {
@@ -35,7 +30,7 @@ const IndexProperties = (props) => {
     console.log('THIS IS MIN PRICE', minPrice)
     console.log('THIS IS MAX PRICE', maxPrice)
 
-    
+    // Calls getAllProperties Axios call and sets seeded data to properties state
     useEffect(() => {
         getAllProperties()
             .then(res => {
@@ -45,11 +40,17 @@ const IndexProperties = (props) => {
             .catch(console.error)
     }, [])
 
+    // If the API call is unsuccessful, display a loading screen
     if (!properties) {
         return <p>loading...</p>
     }
+    // If there are no properties, display a link to list a new property
     else if (properties.length === 0) {
-        return <p>Upload a Property</p>
+        return (
+            <Link to='/addProperty'>
+                <p>List New Property</p>
+            </Link>
+        ) 
     }
 
     let propertyCards
@@ -58,6 +59,7 @@ const IndexProperties = (props) => {
     if(properties.length > 0) {
         // Logic for the property filters
         propertyCards = properties.filter((property) => {
+            // Search filter
             if (searchTerm == '') {
                 return property
             }
@@ -65,6 +67,7 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // City filter
         .filter((property) => {
             if (cities == 'All' || cities == null) {
                 return property
@@ -73,6 +76,7 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // Bedrooms filter
         .filter((property) => {
             if (bedrooms == null) {
                 return property
@@ -81,6 +85,7 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // Bathrooms filter
         .filter((property) => {
             if (bathrooms == null) {
                 return property
@@ -89,6 +94,7 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // Minimum price filter
         .filter((property) => {
             if (minPrice == null || minPrice == '') {
                 return property
@@ -97,6 +103,7 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // Maximum price filter
         .filter((property) => {
             if (maxPrice == null || maxPrice == '') {
                 return property
@@ -105,8 +112,8 @@ const IndexProperties = (props) => {
                 return property
             }
         })
+        // Mapping through each property in the properties array to create a card containing the data
         .map((property) => {
-            let cityState =  property.address.split(',')[1] + property.address.split(',')[2]
             return (
                 <Card key={property._id} style={{ width: '30%' }} className="container m-2">
                     <Card.Body>
