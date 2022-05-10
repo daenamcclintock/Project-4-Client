@@ -9,6 +9,8 @@ const ShowMessage = (props) => {
     const [updated, setUpdated] = useState(false)
     const navigate = useNavigate()
 
+    const triggerRefresh = () => {setUpdated(prev=> !prev)}
+
     let messages = user.messages
     const messageId = messages.map((message) => message._id)
     let userId = user._id
@@ -22,8 +24,9 @@ const ShowMessage = (props) => {
             console.log('THIS IS MESSAGE ID2', messageId)
         })
         removeMessage(user, user._id, messageId)
-            .then(() => navigate('/messages'))
-            // .then(() => setUpdated(prev => !prev))
+            // .then(() => navigate('/messages'))
+            // .then(triggerRefresh())
+            .then(() => triggerRefresh())
             // .then(() => window.location.reload(false))
             // if there is an error, we'll send an error message
             .catch(console.error)
