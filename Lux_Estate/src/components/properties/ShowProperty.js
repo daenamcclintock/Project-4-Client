@@ -9,6 +9,7 @@ import MessageModal from "../messages/CreateMessage";
 import ShowMessage from "../messages/ShowMessages";
 import Contact from "../messages/Contact";
 import CreateMap from "../mapbox/CreateMap";
+import MapBox from "../mapbox/MapBox";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 
@@ -173,7 +174,7 @@ const ShowProperty = (props) => {
                             </div>
                         </div>
                         <div className="amenities">
-                            <h4>Amenitites:</h4>
+                            {/* <h4>Amenitites:</h4> */}
                             <ul>
                                 {/* {showAmenities()} */}
                             </ul>

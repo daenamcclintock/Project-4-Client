@@ -100,7 +100,7 @@ const MineProperties = (props) => {
             <div className='SearchBar_container'>
                 <div className="searchBar_fields">
                     <div className="search_text">
-                        <h3>Search Luxury Real Estate</h3>
+                        <h3>Search My Listings</h3>
                     </div>
                     <div className="search_input">
                         <input className='search_bar' type='text' placeholder='search by city' onChange={(e) => {setSearchTerm(e.target.value)}}/>

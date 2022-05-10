@@ -5,6 +5,10 @@
     margin-top: 3em;
 }
 
+.search_text {
+    text-align: center;
+}
+
 .search_text, .search_input {
     margin-bottom: 1em;
 }

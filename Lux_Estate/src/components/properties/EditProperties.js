@@ -23,6 +23,8 @@ const EditPropertiesModel = (props) => {
             return {...prevProperty, ...updatedValue}
         })
     }
+    
+    console.log('THIS IS PROPERTY', property)
 
     // Function to update the property when the form is submitted
     const handleSubmit = (e) => {

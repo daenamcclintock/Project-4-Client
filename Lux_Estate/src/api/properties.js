@@ -37,14 +37,14 @@ export const createProperty = (user, newProperty) => {
 
 // PATCH -> Update function
 export const updateProperty = (user, updatedProperty) => {
-    console.log(`user ${user} edited a property`)
+    console.log(`user ${user} edited a property`, user)
     return axios({
         url: `${apiUrl}/properties/${updatedProperty._id}/edit`,
         method: 'PATCH',
         headers: {
             Authorization: `Token token=${user.token}`
         },
-        data: { property: updatedProperty}
+        data: { properties: updatedProperty}
     })
 }
 
